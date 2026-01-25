@@ -1,0 +1,45 @@
+---
+# =============================================================================
+# 메인 페이지 (Books Gallery)
+# =============================================================================
+# 이 페이지는 _data/books.yml 파일의 데이터를 읽어와
+# CSS Grid 갤러리 형태로 책 목록을 표시합니다.
+# =============================================================================
+layout: default
+title: Books
+---
+
+<!-- 책 갤러리 -->
+<section class="books-gallery">
+    {% comment %}
+    =============================================================================
+    Liquid 템플릿 설명:
+    - site.data.books: _data/books.yml 파일의 데이터를 가져옵니다
+    - for 루프: 각 책에 대해 카드를 생성합니다
+    - if/else: 이미지가 있으면 표시하고, 없으면 플레이스홀더를 표시합니다
+    =============================================================================
+    {% endcomment %}
+
+    {% for book in site.data.books %}
+    <article class="book-card">
+        <!-- 책 표지 -->
+        <div class="book-cover">
+            {% if book.cover_image %}
+            <img src="{{ book.cover_image | relative_url }}" alt="{{ book.title }} 표지">
+            {% else %}
+            <!-- 이미지가 없을 때 플레이스홀더 -->
+            <div class="book-cover-placeholder">
+                <span>표지 이미지<br>준비중</span>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- 책 정보 -->
+        <div class="book-info">
+            <h2 class="book-title">{{ book.title }}</h2>
+            <p class="book-author">{{ book.author }}</p>
+            <p class="book-year">{{ book.year }}</p>
+        </div>
+    </article>
+    {% endfor %}
+</section>

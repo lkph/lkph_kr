@@ -1,0 +1,37 @@
+# =============================================================================
+# leekim publishing house - Jekyll 설정 파일
+# =============================================================================
+# 이 파일은 사이트의 기본 설정을 담당합니다.
+# 수정 후 Jekyll 서버를 재시작해야 적용됩니다.
+# =============================================================================
+
+# 사이트 기본 정보
+title: leekim
+description: "leekim publishing house - Art, Design, Independent Publishing"
+url: "https://lkph.kr"
+baseurl: ""
+
+# 브랜드 정보 (레이아웃에서 site.brand로 접근 가능)
+brand:
+  name: leekim
+  full_name: leekim publishing house
+  keywords: "Art, Design, Independent, Minimal, Classic"
+
+# 기본 설정
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# 빌드 설정
+markdown: kramdown
+highlighter: rouge
+
+# 파일 제외 (GitHub Pages 빌드 시 무시)
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor

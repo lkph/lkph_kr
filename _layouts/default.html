@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- =======================================================================
+       leekim publishing house - 기본 레이아웃
+       =======================================================================
+       이 파일은 모든 페이지에 적용되는 공통 레이아웃입니다.
+       - Sticky Header (로고 + 햄버거 메뉴)
+       - Off-canvas 슬라이드 메뉴
+       - Footer
+       ======================================================================= -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ site.description }}">
+  <meta name="keywords" content="{{ site.brand.keywords }}">
+  
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  
+  <!-- 스타일시트 -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <!-- =====================================================================
+       HEADER - Sticky Header
+       ===================================================================== -->
+  <header class="site-header">
+    <!-- 로고 (좌측) -->
+    <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+    
+    <!-- 햄버거 메뉴 버튼 (우측) -->
+    <button class="menu-toggle" aria-label="메뉴 열기" onclick="toggleMenu()">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </header>
+
+  <!-- =====================================================================
+       OFF-CANVAS MENU - 우측 슬라이드 메뉴
+       ===================================================================== -->
+  <!-- 메뉴 오버레이 (배경 어둡게) -->
+  <div class="menu-overlay" onclick="toggleMenu()"></div>
+  
+  <!-- 메뉴 패널 -->
+  <nav class="menu-panel">
+    <!-- 닫기 버튼 -->
+    <button class="menu-close" aria-label="메뉴 닫기" onclick="toggleMenu()">×</button>
+    
+    <!-- 네비게이션 링크 -->
+    <ul class="menu-nav">
+      <li><a href="{{ '/' | relative_url }}">Books</a></li>
+      <li><a href="{{ '/about' | relative_url }}">About</a></li>
+      <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+    </ul>
+    
+    <!-- 메뉴 하단 정보 -->
+    <div class="menu-footer">
+      <p>{{ site.brand.full_name }}</p>
+    </div>
+  </nav>
+
+  <!-- =====================================================================
+       MAIN CONTENT - 페이지 본문
+       ===================================================================== -->
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  <!-- =====================================================================
+       FOOTER
+       ===================================================================== -->
+  <footer class="site-footer">
+    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.brand.full_name }}. All rights reserved.</p>
+  </footer>
+
+  <!-- =====================================================================
+       JAVASCRIPT - 메뉴 토글 기능
+       ===================================================================== -->
+  <script>
+    // 메뉴 열기/닫기 토글 함수
+    function toggleMenu() {
+      document.body.classList.toggle('menu-open');
+    }
+    
+    // ESC 키로 메뉴 닫기
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+        toggleMenu();
+      }
+    });
+  </script>
+</body>
+</html>
