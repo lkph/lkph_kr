@@ -28,6 +28,12 @@ defaults:
 markdown: kramdown
 highlighter: rouge
 
+# 컬렉션 설정 (책 상세 페이지용)
+collections:
+  books:
+    output: true
+    permalink: /books/:slug/
+
 # 파일 제외 (GitHub Pages 빌드 시 무시)
 exclude:
   - Gemfile

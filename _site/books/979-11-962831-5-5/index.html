@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <!-- =======================================================================
+       leekim publishing house - 기본 레이아웃
+       =======================================================================
+       이 파일은 모든 페이지에 적용되는 공통 레이아웃입니다.
+       - Sticky Header (로고 + 햄버거 메뉴)
+       - Off-canvas 슬라이드 메뉴
+       - Footer
+       ======================================================================= -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="leekim publishing house - Art, Design, Independent Publishing">
+  <meta name="keywords" content="Art, Design, Independent, Minimal, Classic">
+
+  <title>과학자가 되는 방법 | leekim</title>
+
+  <!-- 스타일시트 -->
+  <link rel="stylesheet" href="/lkph_kr/assets/css/style.css">
+</head>
+
+<body>
+  <!-- =====================================================================
+       HEADER - Sticky Header
+       ===================================================================== -->
+  <header class="site-header">
+    <!-- 현재 메뉴 (좌측) -->
+    <div class="current-page-label">
+      과학자가 되는 방법
+    </div>
+
+    <!-- 로고 (중앙) -->
+    <a href="/lkph_kr/" class="logo">leekim</a>
+
+  </header>
+
+  <!-- 햄버거 메뉴 버튼 (전역 배치로 가시성 확보) -->
+  <button class="menu-toggle" aria-label="메뉴 토글" onclick="toggleMenu()">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+
+  <!-- =====================================================================
+       OFF-CANVAS MENU - 우측 슬라이드 메뉴
+       ===================================================================== -->
+  <!-- 메뉴 오버레이 (배경 어둡게) -->
+  <div class="menu-overlay" onclick="toggleMenu()"></div>
+
+  <nav class="menu-panel">
+    <!-- 네비게이션 링크 -->
+    <ul class="menu-nav">
+      <li><a href="/lkph_kr/">Books</a></li>
+      <li><a href="/lkph_kr/about">About</a></li>
+      <li><a href="/lkph_kr/contact">Contact</a></li>
+    </ul>
+
+    <!-- 메뉴 하단 정보 -->
+    <div class="menu-footer">
+      <p>leekim publishing house</p>
+    </div>
+  </nav>
+
+  <!-- =====================================================================
+       MAIN CONTENT - 페이지 본문
+       ===================================================================== -->
+  <main class="site-main">
+    <article class="book-detail">
+    <!-- 책 표지 -->
+    <div class="book-detail-cover">
+        
+        <img src="/lkph_kr" alt="과학자가 되는 방법 표지">
+        
+    </div>
+
+    <!-- 책 정보 -->
+    <div class="book-detail-info">
+        <h1 class="book-detail-title">과학자가 되는 방법</h1>
+        <p class="book-detail-author">남궁석</p>
+
+        <!-- 메타 정보 -->
+        <dl class="book-detail-meta">
+            <dt>출판년도</dt>
+            <dd>2018</dd>
+
+            <dt>ISBN</dt>
+            <dd>979-11-962831-5-5</dd>
+        </dl>
+
+        <!-- 책 소개 -->
+        
+        <section class="book-detail-section">
+            <h2>책 소개</h2>
+            <p>[P]수학, 과학 분야의 도서입니다. (336쪽)</p>
+        </section>
+        
+
+        <!-- 서평 -->
+        
+
+        <!-- 본문 (마크다운 내용) -->
+        
+        <section class="book-detail-section book-detail-content">
+            <h1 id="과학자가-되는-방법">과학자가 되는 방법</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>남궁석</strong> 저</td>
+      <td><strong>2018</strong>년 발행</td>
+      <td><strong>15,000</strong>원</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="책-소개">책 소개</h2>
+
+<p>과학자가 되는 방법은(는) [P]수학, 과학 관련 도서입니다.</p>
+
+<ul>
+  <li><strong>ISBN</strong>: 979-11-962831-5-5</li>
+  <li><strong>페이지</strong>: 336쪽</li>
+</ul>
+
+        </section>
+        
+
+        <!-- 뒤로가기 -->
+        <a href="/lkph_kr/" class="back-link">← 목록으로 돌아가기</a>
+    </div>
+</article>
+  </main>
+
+  <!-- =====================================================================
+       FOOTER
+       ===================================================================== -->
+  <footer class="site-footer">
+    <p>&copy; 2026 leekim publishing house. All rights reserved.</p>
+  </footer>
+
+  <!-- =====================================================================
+       JAVASCRIPT - 메뉴 토글 기능
+       ===================================================================== -->
+  <script>
+    // 메뉴 열기/닫기 토글 함수
+    function toggleMenu() {
+      document.body.classList.toggle('menu-open');
+    }
+
+    // ESC 키로 메뉴 닫기
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+        toggleMenu();
+      }
+    });
+  </script>
+</body>
+
+</html>

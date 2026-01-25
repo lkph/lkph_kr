@@ -14,32 +14,36 @@ title: Books
     {% comment %}
     =============================================================================
     Liquid 템플릿 설명:
-    - site.data.books: _data/books.yml 파일의 데이터를 가져옵니다
+    - site.books: _books 폴더의 마크다운 파일들을 가져옵니다 (Jekyll Collection)
+    - sort: 'date' | reverse: 발행일 최신순으로 정렬합니다
     - for 루프: 각 책에 대해 카드를 생성합니다
-    - if/else: 이미지가 있으면 표시하고, 없으면 플레이스홀더를 표시합니다
+    - url: 상세 페이지로 이동하는 링크를 생성합니다
     =============================================================================
     {% endcomment %}
 
-    {% for book in site.data.books %}
-    <article class="book-card">
-        <!-- 책 표지 -->
-        <div class="book-cover">
-            {% if book.cover_image %}
-            <img src="{{ book.cover_image | relative_url }}" alt="{{ book.title }} 표지">
-            {% else %}
-            <!-- 이미지가 없을 때 플레이스홀더 -->
-            <div class="book-cover-placeholder">
-                <span>표지 이미지<br>준비중</span>
+    {% assign sorted_books = site.books | sort: 'date' | reverse %}
+    {% for book in sorted_books %}
+    <a href="{{ book.url | relative_url }}" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                {% if book.cover_image %}
+                <img src="{{ book.cover_image | relative_url }}" alt="{{ book.title }} 표지">
+                {% else %}
+                <!-- 이미지가 없을 때 플레이스홀더 -->
+                <div class="book-cover-placeholder">
+                    <span>표지 이미지<br>준비중</span>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-        </div>
 
-        <!-- 책 정보 -->
-        <div class="book-info">
-            <h2 class="book-title">{{ book.title }}</h2>
-            <p class="book-author">{{ book.author }}</p>
-            <p class="book-year">{{ book.year }}</p>
-        </div>
-    </article>
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">{{ book.title }}</h2>
+                <p class="book-author">{{ book.author }}</p>
+                <p class="book-year">{{ book.year }}</p>
+            </div>
+        </article>
+    </a>
     {% endfor %}
 </section>

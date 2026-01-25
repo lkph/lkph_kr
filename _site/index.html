@@ -34,13 +34,13 @@
     <!-- 로고 (중앙) -->
     <a href="/lkph_kr/" class="logo">leekim</a>
 
-    <!-- 햄버거 메뉴 버튼 (우측) -->
-    <button class="menu-toggle" aria-label="메뉴 열기" onclick="toggleMenu()">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
   </header>
+
+  <!-- 햄버거 메뉴 버튼 (전역 배치로 가시성 확보) -->
+  <button class="menu-toggle" aria-label="메뉴 토글" onclick="toggleMenu()">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
 
   <!-- =====================================================================
        OFF-CANVAS MENU - 우측 슬라이드 메뉴
@@ -48,11 +48,7 @@
   <!-- 메뉴 오버레이 (배경 어둡게) -->
   <div class="menu-overlay" onclick="toggleMenu()"></div>
 
-  <!-- 메뉴 패널 -->
   <nav class="menu-panel">
-    <!-- 닫기 버튼 -->
-    <button class="menu-close" aria-label="메뉴 닫기" onclick="toggleMenu()">×</button>
-
     <!-- 네비게이션 링크 -->
     <ul class="menu-nav">
       <li><a href="/lkph_kr/">Books</a></li>
@@ -75,53 +71,636 @@
     
 
     
-    <article class="book-card">
-        <!-- 책 표지 -->
-        <div class="book-cover">
-            
-            <img src="/lkph_kr/assets/images/books/book1.jpg" alt="도시의 형태 표지">
-            
-        </div>
-
-        <!-- 책 정보 -->
-        <div class="book-info">
-            <h2 class="book-title">도시의 형태</h2>
-            <p class="book-author">김건축</p>
-            <p class="book-year">2024</p>
-        </div>
-    </article>
     
-    <article class="book-card">
-        <!-- 책 표지 -->
-        <div class="book-cover">
-            
-            <img src="/lkph_kr/assets/images/books/book2.jpg" alt="그래픽 언어 표지">
-            
-        </div>
+    <a href="/lkph_kr/books/979-11-89680-58-9/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="생명의 여정 표지">
+                
+            </div>
 
-        <!-- 책 정보 -->
-        <div class="book-info">
-            <h2 class="book-title">그래픽 언어</h2>
-            <p class="book-author">박디자인</p>
-            <p class="book-year">2023</p>
-        </div>
-    </article>
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">생명의 여정</h2>
+                <p class="book-author">피터 고프리스미스</p>
+                <p class="book-year">2025</p>
+            </div>
+        </article>
+    </a>
     
-    <article class="book-card">
-        <!-- 책 표지 -->
-        <div class="book-cover">
-            
-            <img src="/lkph_kr/assets/images/books/book3.jpg" alt="종이의 촉감 표지">
-            
-        </div>
+    <a href="/lkph_kr/books/979-11-89680-57-2/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="러닝클럽 표지">
+                
+            </div>
 
-        <!-- 책 정보 -->
-        <div class="book-info">
-            <h2 class="book-title">종이의 촉감</h2>
-            <p class="book-author">최인쇄</p>
-            <p class="book-year">2023</p>
-        </div>
-    </article>
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">러닝클럽</h2>
+                <p class="book-author">김준녕,김쿠만,이묵돌,이서영,최미래</p>
+                <p class="book-year">2025</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-56-5/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="과학자가 되는 방법 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">과학자가 되는 방법</h2>
+                <p class="book-author">남궁석</p>
+                <p class="book-year">2024</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-54-1/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="김범준의 물리 장난감 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">김범준의 물리 장난감</h2>
+                <p class="book-author">김범준</p>
+                <p class="book-year">2024</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-49-7/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="닌텐도 다이어리 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">닌텐도 다이어리</h2>
+                <p class="book-author">조경숙</p>
+                <p class="book-year">2024</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-48-0/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="과학의 과학 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">과학의 과학</h2>
+                <p class="book-author">다슌 왕,앨버트 라슬로 바라바시</p>
+                <p class="book-year">2023</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-46-6/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="쇼 미 더 허니 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">쇼 미 더 허니</h2>
+                <p class="book-author">데이브 도로기</p>
+                <p class="book-year">2023</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-44-2/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="뉴턴의 무정한 세계 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">뉴턴의 무정한 세계</h2>
+                <p class="book-author">정인경</p>
+                <p class="book-year">2023</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-43-5/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="오송역 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">오송역</h2>
+                <p class="book-author">전현우</p>
+                <p class="book-year">2023</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-39-8/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="후생동물 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">후생동물</h2>
+                <p class="book-author">피터 고프리스미스</p>
+                <p class="book-year">2023</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-37-4/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="웹툰 내비게이션 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">웹툰 내비게이션</h2>
+                <p class="book-author">박범기,성상민,조경숙,조익상</p>
+                <p class="book-year">2022</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-36-7/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="레트로 마니아 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">레트로 마니아</h2>
+                <p class="book-author">김쿠만</p>
+                <p class="book-year">2022</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-33-6/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="양육가설 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">양육가설</h2>
+                <p class="book-author">주디스리치해리스</p>
+                <p class="book-year">2022</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-32-9/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="오만과 선량 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">오만과 선량</h2>
+                <p class="book-author">츠지무라미즈키</p>
+                <p class="book-year">2021</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-27-5/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="블루 노트 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">블루 노트</h2>
+                <p class="book-author">이묵돌</p>
+                <p class="book-year">2021</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-28-2/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="적색편이 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">적색편이</h2>
+                <p class="book-author">이묵돌</p>
+                <p class="book-year">2021</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-25-1/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="푸드 트렌드 No.4 : 집밥2.0 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">푸드 트렌드 No.4 : 집밥2.0</h2>
+                <p class="book-author">문정훈,서울대학교푸드비즈니스랩,엄하람,이동민</p>
+                <p class="book-year">2020</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-24-4/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="화석이 되고 싶어 : 한눈에 보는 화석 생성 과정 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">화석이 되고 싶어 : 한눈에 보는 화석 생성 과정</h2>
+                <p class="book-author">츠치야 켄</p>
+                <p class="book-year">2020</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-23-7/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="대표민주주의 가이드 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">대표민주주의 가이드</h2>
+                <p class="book-author">하야카와 마코토</p>
+                <p class="book-year">2020</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-21-3/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="시간과 장의사 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">시간과 장의사</h2>
+                <p class="book-author">이묵돌</p>
+                <p class="book-year">2020</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-15-2/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="푸드 트렌드 3: 뉴밀리어 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">푸드 트렌드 3: 뉴밀리어</h2>
+                <p class="book-author">문정훈,서울대학교 푸드비즈니스랩,이동민</p>
+                <p class="book-year">2019</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-13-8/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="우울밥 2 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">우울밥 2</h2>
+                <p class="book-author">시카와 유우키</p>
+                <p class="book-year">2019</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-12-1/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="우울밥 1 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">우울밥 1</h2>
+                <p class="book-author">시카와유우키</p>
+                <p class="book-year">2019</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-09-1/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="사고실험 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">사고실험</h2>
+                <p class="book-author">조엘레비</p>
+                <p class="book-year">2019</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-06-0/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="역마 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">역마</h2>
+                <p class="book-author">이묵돌</p>
+                <p class="book-year">2019</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-05-3/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="아더 마인즈 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">아더 마인즈</h2>
+                <p class="book-author">피터고프리스미스</p>
+                <p class="book-year">2019</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-89680-04-6/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="계획된 불평등 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">계획된 불평등</h2>
+                <p class="book-author">마리 힉스</p>
+                <p class="book-year">2019</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-962831-9-3/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="푸드트렌드매거진No.2:펀슈머 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">푸드트렌드매거진No.2:펀슈머</h2>
+                <p class="book-author">문정훈</p>
+                <p class="book-year">2019</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-962831-5-5/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="과학자가 되는 방법 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">과학자가 되는 방법</h2>
+                <p class="book-author">남궁석</p>
+                <p class="book-year">2018</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-962831-1-7/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="최저 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">최저</h2>
+                <p class="book-author">사쿠라 마나</p>
+                <p class="book-year">2018</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-962831-0-0/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="푸드 트렌드 매거진. No 1 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">푸드 트렌드 매거진. No 1</h2>
+                <p class="book-author">문정훈</p>
+                <p class="book-year">2018</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-956868-9-6/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="수학으로 만나는 세계 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">수학으로 만나는 세계</h2>
+                <p class="book-author">알렉스 벨로스,에드먼드 해리스</p>
+                <p class="book-year">2018</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-956868-8-9/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="양육가설 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">양육가설</h2>
+                <p class="book-author">주디스리치해리스</p>
+                <p class="book-year">2017</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-956868-5-8/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="사인과 다면체와 별과 패턴 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">사인과 다면체와 별과 패턴</h2>
+                <p class="book-author">알렉스 벨로스,에드먼드 해리스</p>
+                <p class="book-year">2016</p>
+            </div>
+        </article>
+    </a>
+    
+    <a href="/lkph_kr/books/979-11-956868-0-3/" class="book-card-link">
+        <article class="book-card">
+            <!-- 책 표지 -->
+            <div class="book-cover">
+                
+                <img src="/lkph_kr" alt="필리버스터 표지">
+                
+            </div>
+
+            <!-- 책 정보 -->
+            <div class="book-info">
+                <h2 class="book-title">필리버스터</h2>
+                <p class="book-author"></p>
+                <p class="book-year">2016</p>
+            </div>
+        </article>
+    </a>
     
 </section>
   </main>
