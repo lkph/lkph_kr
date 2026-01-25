@@ -12,13 +12,13 @@
        ======================================================================= -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ site.description }}">
-  <meta name="keywords" content="{{ site.brand.keywords }}">
+  <meta name="description" content="leekim publishing house - Art, Design, Independent Publishing">
+  <meta name="keywords" content="Art, Design, Independent, Minimal, Classic">
 
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <title>Books | leekim</title>
 
   <!-- 스타일시트 -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="/lkph_kr/assets/css/style.css">
 </head>
 
 <body>
@@ -28,11 +28,11 @@
   <header class="site-header">
     <!-- 현재 메뉴 (좌측) -->
     <div class="current-page-label">
-      {% if page.title %}{{ page.title }}{% else %}Books{% endif %}
+      Books
     </div>
 
     <!-- 로고 (중앙) -->
-    <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+    <a href="/lkph_kr/" class="logo">leekim</a>
 
     <!-- 햄버거 메뉴 버튼 (우측) -->
     <button class="menu-toggle" aria-label="메뉴 열기" onclick="toggleMenu()">
@@ -55,14 +55,14 @@
 
     <!-- 네비게이션 링크 -->
     <ul class="menu-nav">
-      <li><a href="{{ '/' | relative_url }}">Books</a></li>
-      <li><a href="{{ '/about' | relative_url }}">About</a></li>
-      <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+      <li><a href="/lkph_kr/">Books</a></li>
+      <li><a href="/lkph_kr/about">About</a></li>
+      <li><a href="/lkph_kr/contact">Contact</a></li>
     </ul>
 
     <!-- 메뉴 하단 정보 -->
     <div class="menu-footer">
-      <p>{{ site.brand.full_name }}</p>
+      <p>leekim publishing house</p>
     </div>
   </nav>
 
@@ -70,14 +70,67 @@
        MAIN CONTENT - 페이지 본문
        ===================================================================== -->
   <main class="site-main">
-    {{ content }}
+    <!-- 책 갤러리 -->
+<section class="books-gallery">
+    
+
+    
+    <article class="book-card">
+        <!-- 책 표지 -->
+        <div class="book-cover">
+            
+            <img src="/lkph_kr/assets/images/books/book1.jpg" alt="도시의 형태 표지">
+            
+        </div>
+
+        <!-- 책 정보 -->
+        <div class="book-info">
+            <h2 class="book-title">도시의 형태</h2>
+            <p class="book-author">김건축</p>
+            <p class="book-year">2024</p>
+        </div>
+    </article>
+    
+    <article class="book-card">
+        <!-- 책 표지 -->
+        <div class="book-cover">
+            
+            <img src="/lkph_kr/assets/images/books/book2.jpg" alt="그래픽 언어 표지">
+            
+        </div>
+
+        <!-- 책 정보 -->
+        <div class="book-info">
+            <h2 class="book-title">그래픽 언어</h2>
+            <p class="book-author">박디자인</p>
+            <p class="book-year">2023</p>
+        </div>
+    </article>
+    
+    <article class="book-card">
+        <!-- 책 표지 -->
+        <div class="book-cover">
+            
+            <img src="/lkph_kr/assets/images/books/book3.jpg" alt="종이의 촉감 표지">
+            
+        </div>
+
+        <!-- 책 정보 -->
+        <div class="book-info">
+            <h2 class="book-title">종이의 촉감</h2>
+            <p class="book-author">최인쇄</p>
+            <p class="book-year">2023</p>
+        </div>
+    </article>
+    
+</section>
   </main>
 
   <!-- =====================================================================
        FOOTER
        ===================================================================== -->
   <footer class="site-footer">
-    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.brand.full_name }}. All rights reserved.</p>
+    <p>&copy; 2026 leekim publishing house. All rights reserved.</p>
   </footer>
 
   <!-- =====================================================================

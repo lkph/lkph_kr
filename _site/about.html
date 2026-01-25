@@ -12,13 +12,13 @@
        ======================================================================= -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ site.description }}">
-  <meta name="keywords" content="{{ site.brand.keywords }}">
+  <meta name="description" content="leekim publishing house - Art, Design, Independent Publishing">
+  <meta name="keywords" content="Art, Design, Independent, Minimal, Classic">
 
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <title>About | leekim</title>
 
   <!-- 스타일시트 -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="/lkph_kr/assets/css/style.css">
 </head>
 
 <body>
@@ -28,11 +28,11 @@
   <header class="site-header">
     <!-- 현재 메뉴 (좌측) -->
     <div class="current-page-label">
-      {% if page.title %}{{ page.title }}{% else %}Books{% endif %}
+      About
     </div>
 
     <!-- 로고 (중앙) -->
-    <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+    <a href="/lkph_kr/" class="logo">leekim</a>
 
     <!-- 햄버거 메뉴 버튼 (우측) -->
     <button class="menu-toggle" aria-label="메뉴 열기" onclick="toggleMenu()">
@@ -55,14 +55,14 @@
 
     <!-- 네비게이션 링크 -->
     <ul class="menu-nav">
-      <li><a href="{{ '/' | relative_url }}">Books</a></li>
-      <li><a href="{{ '/about' | relative_url }}">About</a></li>
-      <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+      <li><a href="/lkph_kr/">Books</a></li>
+      <li><a href="/lkph_kr/about">About</a></li>
+      <li><a href="/lkph_kr/contact">Contact</a></li>
     </ul>
 
     <!-- 메뉴 하단 정보 -->
     <div class="menu-footer">
-      <p>{{ site.brand.full_name }}</p>
+      <p>leekim publishing house</p>
     </div>
   </nav>
 
@@ -70,14 +70,35 @@
        MAIN CONTENT - 페이지 본문
        ===================================================================== -->
   <main class="site-main">
-    {{ content }}
+    <div class="page-content">
+
+# About
+
+**leekim publishing house**는 예술, 디자인, 건축 분야의 독립 출판사입니다.
+
+우리는 시각 문화의 다양한 층위를 탐구하며, 독자들에게 새로운 시각적 경험을 제공하고자 합니다. 각각의 책은 단순한 정보 전달을 넘어, 그 자체로 하나의 오브제가 되기를 지향합니다.
+
+## 철학
+
+우리는 느린 출판을 지향합니다. 한 권의 책이 세상에 나오기까지, 저자와 디자이너, 편집자가 충분한 시간을 들여 고민하고 대화합니다. 이 과정에서 탄생한 책들은 오래 곁에 두고 볼 수 있는 가치를 지닙니다.
+
+## 역사
+
+2020년 서울에서 시작된 leekim은 지금까지 다양한 분야의 독립 출판물을 선보여 왔습니다. 예술과 디자인의 경계를 넘나드는 책들을 통해, 독자들과 새로운 대화를 시작합니다.
+
+---
+
+*이 내용은 더미 텍스트입니다. 실제 출판사 정보로 교체해 주세요.*
+
+</div>
+
   </main>
 
   <!-- =====================================================================
        FOOTER
        ===================================================================== -->
   <footer class="site-footer">
-    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.brand.full_name }}. All rights reserved.</p>
+    <p>&copy; 2026 leekim publishing house. All rights reserved.</p>
   </footer>
 
   <!-- =====================================================================

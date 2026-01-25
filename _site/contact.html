@@ -12,13 +12,13 @@
        ======================================================================= -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ site.description }}">
-  <meta name="keywords" content="{{ site.brand.keywords }}">
+  <meta name="description" content="leekim publishing house - Art, Design, Independent Publishing">
+  <meta name="keywords" content="Art, Design, Independent, Minimal, Classic">
 
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <title>Contact | leekim</title>
 
   <!-- 스타일시트 -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="/lkph_kr/assets/css/style.css">
 </head>
 
 <body>
@@ -28,11 +28,11 @@
   <header class="site-header">
     <!-- 현재 메뉴 (좌측) -->
     <div class="current-page-label">
-      {% if page.title %}{{ page.title }}{% else %}Books{% endif %}
+      Contact
     </div>
 
     <!-- 로고 (중앙) -->
-    <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+    <a href="/lkph_kr/" class="logo">leekim</a>
 
     <!-- 햄버거 메뉴 버튼 (우측) -->
     <button class="menu-toggle" aria-label="메뉴 열기" onclick="toggleMenu()">
@@ -55,14 +55,14 @@
 
     <!-- 네비게이션 링크 -->
     <ul class="menu-nav">
-      <li><a href="{{ '/' | relative_url }}">Books</a></li>
-      <li><a href="{{ '/about' | relative_url }}">About</a></li>
-      <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+      <li><a href="/lkph_kr/">Books</a></li>
+      <li><a href="/lkph_kr/about">About</a></li>
+      <li><a href="/lkph_kr/contact">Contact</a></li>
     </ul>
 
     <!-- 메뉴 하단 정보 -->
     <div class="menu-footer">
-      <p>{{ site.brand.full_name }}</p>
+      <p>leekim publishing house</p>
     </div>
   </nav>
 
@@ -70,14 +70,41 @@
        MAIN CONTENT - 페이지 본문
        ===================================================================== -->
   <main class="site-main">
-    {{ content }}
+    <div class="page-content">
+
+# Contact
+
+leekim publishing house와 연락하고 싶으시다면 아래 방법을 이용해 주세요.
+
+## Email
+
+**hello@lkph.kr**
+
+원고 투고, 협업 제안, 도서 주문 문의 등 모든 연락은 이메일로 받고 있습니다.
+
+## Social
+
+- Instagram: [@leekim.books](https://instagram.com/leekim.books)
+- Twitter: [@leekim_books](https://twitter.com/leekim_books)
+
+## 방문
+
+서울특별시 OO구 OO로 00길 00  
+(상세 주소는 이메일로 문의해 주세요)
+
+---
+
+*이 내용은 더미 텍스트입니다. 실제 연락처 정보로 교체해 주세요.*
+
+</div>
+
   </main>
 
   <!-- =====================================================================
        FOOTER
        ===================================================================== -->
   <footer class="site-footer">
-    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.brand.full_name }}. All rights reserved.</p>
+    <p>&copy; 2026 leekim publishing house. All rights reserved.</p>
   </footer>
 
   <!-- =====================================================================

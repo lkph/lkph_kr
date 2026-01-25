@@ -12,13 +12,13 @@
        ======================================================================= -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ site.description }}">
-  <meta name="keywords" content="{{ site.brand.keywords }}">
+  <meta name="description" content="leekim publishing house - Art, Design, Independent Publishing">
+  <meta name="keywords" content="Art, Design, Independent, Minimal, Classic">
 
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <title>책 표지 이미지 폴더 | leekim</title>
 
   <!-- 스타일시트 -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="/lkph_kr/assets/css/style.css">
 </head>
 
 <body>
@@ -28,11 +28,11 @@
   <header class="site-header">
     <!-- 현재 메뉴 (좌측) -->
     <div class="current-page-label">
-      {% if page.title %}{{ page.title }}{% else %}Books{% endif %}
+      책 표지 이미지 폴더
     </div>
 
     <!-- 로고 (중앙) -->
-    <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+    <a href="/lkph_kr/" class="logo">leekim</a>
 
     <!-- 햄버거 메뉴 버튼 (우측) -->
     <button class="menu-toggle" aria-label="메뉴 열기" onclick="toggleMenu()">
@@ -55,14 +55,14 @@
 
     <!-- 네비게이션 링크 -->
     <ul class="menu-nav">
-      <li><a href="{{ '/' | relative_url }}">Books</a></li>
-      <li><a href="{{ '/about' | relative_url }}">About</a></li>
-      <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+      <li><a href="/lkph_kr/">Books</a></li>
+      <li><a href="/lkph_kr/about">About</a></li>
+      <li><a href="/lkph_kr/contact">Contact</a></li>
     </ul>
 
     <!-- 메뉴 하단 정보 -->
     <div class="menu-footer">
-      <p>{{ site.brand.full_name }}</p>
+      <p>leekim publishing house</p>
     </div>
   </nav>
 
@@ -70,14 +70,34 @@
        MAIN CONTENT - 페이지 본문
        ===================================================================== -->
   <main class="site-main">
-    {{ content }}
+    <h1 id="책-표지-이미지-폴더">책 표지 이미지 폴더</h1>
+
+<p>이 폴더에 책 표지 이미지를 저장하세요.</p>
+
+<h2 id="권장-사항">권장 사항</h2>
+<ul>
+  <li>파일 형식: JPG 또는 PNG</li>
+  <li>권장 크기: 600px x 900px (2:3 비율)</li>
+  <li>파일명: 공백 없이, 영문 소문자 사용 (예: book-title.jpg)</li>
+</ul>
+
+<h2 id="사용-방법">사용 방법</h2>
+<ol>
+  <li>이 폴더에 이미지 파일을 추가합니다</li>
+  <li><code class="language-plaintext highlighter-rouge">_data/books.yml</code> 파일에서 <code class="language-plaintext highlighter-rouge">cover_image</code> 필드에 경로를 입력합니다
+    <ul>
+      <li>예: <code class="language-plaintext highlighter-rouge">/assets/images/books/my-book.jpg</code></li>
+    </ul>
+  </li>
+</ol>
+
   </main>
 
   <!-- =====================================================================
        FOOTER
        ===================================================================== -->
   <footer class="site-footer">
-    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.brand.full_name }}. All rights reserved.</p>
+    <p>&copy; 2026 leekim publishing house. All rights reserved.</p>
   </footer>
 
   <!-- =====================================================================
