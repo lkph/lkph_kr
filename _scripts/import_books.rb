@@ -18,7 +18,6 @@ CSV.foreach(INPUT_FILE, col_sep: "\t", headers: true) do |row|
   author = row['저자'].to_s.strip
   price = row['정가'].to_s.strip.gsub('"', '')
   page_count = row['페이지수'].to_s.strip
-  subject = row['메인주제어'].to_s.strip.gsub('"', '')
   publish_date = row['발행일'].to_s.strip
   
   # "보수를 지켜라" 제외
@@ -31,7 +30,7 @@ CSV.foreach(INPUT_FILE, col_sep: "\t", headers: true) do |row|
   year = publish_date.length >= 4 ? publish_date[0, 4] : "2024"
 
   # 설명 생성
-  description = "#{subject} 분야의 도서입니다. (#{page_count}쪽)"
+  description = "도서입니다. (#{page_count}쪽)"
 
   # 파일명 생성
   filename = "#{isbn}.md"
@@ -57,7 +56,7 @@ CSV.foreach(INPUT_FILE, col_sep: "\t", headers: true) do |row|
     
     ## 책 소개
     
-    #{title}은(는) #{subject} 관련 도서입니다.
+    #{title} 관련 도서입니다.
     
     *   **ISBN**: #{isbn}
     *   **페이지**: #{page_count}쪽

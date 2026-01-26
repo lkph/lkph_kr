@@ -15,26 +15,15 @@ def slugify(value):
 
 def create_markdown(row):
     # TSV 컬럼 매핑 (0-based index)
-    # 0: ISBN, 3: 도서명, 4: 저자, 7: 정가, 11: 페이지수, 14: 메인주제어, 18: 발행일
-    
-    isbn = row[0].strip()
-    title = row[3].strip()
-    author = row[4].strip()
-    
-    # "보수를 지켜라" 제외
-    if "보수를 지켜라" in title:
-        return 'SKIPPED'
-
-    # 발행연도 추출 (YYYY-MM-DD)
-    publish_date = row[18].strip()
+    # 발행일: 14, 정가: 7, 페이지수: 11
+    publish_date = row[14].strip()
     year = publish_date[:4] if len(publish_date) >= 4 else "2024"
 
-    # 설명 생성 (주제어 활용)
-    subject = row[14].strip().replace('"', '')
+    # 설명 생성 (주제어 삭제됨)
     page_count = row[11].strip()
     price = row[7].strip().replace('"', '')
     
-    description = f"{subject} 분야의 도서입니다. ({page_count}쪽)"
+    description = f"도서입니다. ({page_count}쪽)"
     
     # 파일명: ISBN 활용
     filename = f"{isbn}.md"
@@ -58,7 +47,7 @@ cover_image: ""
 
 ## 책 소개
 
-{title}은(는) {subject} 관련 도서입니다.
+{title} 관련 도서입니다.
 
 *   **ISBN**: {isbn}
 *   **페이지**: {page_count}쪽
