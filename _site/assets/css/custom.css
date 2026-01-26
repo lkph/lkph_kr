@@ -450,11 +450,11 @@ blockquote {
 .book-detail-cover .book-cover-placeholder {
   width: 100%;
   aspect-ratio: 2 / 3;
-  background-color: #F4F4F4;
+  background-color: #E0E0E0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0055A4;
+  color: #001F3F;
   font-size: 1rem;
   text-align: center;
 }
