@@ -1,10 +1,13 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 /* =============================================================================
    leekim publishing house - 스타일시트
    =============================================================================
    디자인 시스템:
    - 배경색: #F0F0F0 (Off-White, 차분한 미색)
    - 텍스트/강조색: #001F3F (Deep Navy, 짙은 남색)
-   - 폰트: 시스템 Sans-serif, 본문 18px 이상
+   - 폰트: Spectral (영문/숫자), Pretendard (국문)
    ============================================================================= */
 
 /* =============================================================================
@@ -17,7 +20,7 @@
   --color-accent: #0055A4;
 
   /* 타이포그래피 */
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family: "Spectral", "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   --font-size-base: 18px;
   --font-size-large: 1.5rem;
   --font-size-small: 0.875rem;
@@ -183,8 +186,13 @@ img {
   /* 헤더 높이만큼만 가림 */
   background-color: var(--color-bg);
   color: #0055A4 !important;
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
+
+  /* Slide 효과 제거, Fade 효과 적용 */
+  /* transform: translateX(100%); */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
   /* z-index: 280 - 헤더(250)보다 높고 버튼(300)보다 낮음 */
   z-index: 280;
   display: flex;
@@ -196,7 +204,25 @@ img {
 }
 
 .menu-open .menu-panel {
-  transform: translateX(0);
+  /* transform: translateX(0); */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 메뉴 열림 시 기존 요소 숨기기 (Fade Out) */
+.site-main,
+.site-footer,
+.logo,
+.current-page-label {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.menu-open .site-main,
+.menu-open .site-footer,
+.menu-open .logo,
+.menu-open .current-page-label {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* 닫기 버튼 - 햄버거 토글로 대체됨 */
