@@ -15,21 +15,27 @@ def slugify(value):
 
 def create_markdown(row):
     # TSV 컬럼 매핑 (0-based index)
-    # 발행일: 13, 정가: 7, 페이지수: 11, 가로: 9, 세로: 10, 서평(신규): 15
-    publish_date = row[13].strip()
+    # ISBN: 0, 부가기호: 1, 유형: 2, 도서/상품명: 3, 저자: 4, 그림작가: 5, 번역: 6, 정가: 7, 
+    # (가격상태 삭제됨)
+    # 가로: 8, 세로: 9, 페이지수: 10, 출간상태: 11, 발행일: 12, 임프린트: 13, 서평: 14
+    
+    isbn = row[0].strip()
+    title = row[3].strip()
+    author = row[4].strip()
+    publish_date = row[12].strip()
     year = publish_date[:4] if len(publish_date) >= 4 else "2024"
 
-    # 설명 생성 (주제어 삭제됨)
-    page_count = row[11].strip()
+    # 설명 생성
+    page_count = row[10].strip()
     price = row[7].strip().replace('"', '')
     
     # 판형 정보 생성 (가로 × 세로)mm
-    width = row[9].strip()
-    height = row[10].strip()
+    width = row[8].strip()
+    height = row[9].strip()
     size = f"{width} × {height}mm" if width and height else ""
 
-    # 출판사 서평 가져오기 (마지막 열)
-    review = row[15].strip() if len(row) > 15 else ""
+    # 출판사 서평 가져오기
+    review = row[14].strip() if len(row) > 14 else ""
     
     description = f"도서입니다. ({page_count}쪽)"
     
@@ -87,11 +93,15 @@ def main():
             if not row or len(row) < 5:  # 빈 줄이나 데이터 부족
                 continue
                 
+            # "보수를 지켜라" 제외 로직 추가 (Ruby 버전과 동일하게)
+            title = row[3].strip()
+            if "보수를 지켜라" in title:
+                count_skipped += 1
+                continue
+
             result = create_markdown(row)
             if result == 'CREATED':
                 count_created += 1
-            elif result == 'SKIPPED':
-                count_skipped += 1
     
     print(f"완료: {count_created}권 등록됨, {count_skipped}권 제외됨 ('보수를 지켜라')")
 
