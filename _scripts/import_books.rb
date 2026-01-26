@@ -19,6 +19,12 @@ CSV.foreach(INPUT_FILE, col_sep: "\t", headers: true) do |row|
   price = row['정가'].to_s.strip.gsub('"', '')
   page_count = row['페이지수'].to_s.strip
   publish_date = row['발행일'].to_s.strip
+  width = row['가로'].to_s.strip
+  height = row['세로'].to_s.strip
+  review = row['출판사 서평'].to_s.strip
+  
+  # 판형 정보 조합
+  size = (!width.empty? && !height.empty?) ? "#{width} × #{height}mm" : ""
   
   # "보수를 지켜라" 제외
   if title.include?("보수를 지켜라")
@@ -47,6 +53,8 @@ CSV.foreach(INPUT_FILE, col_sep: "\t", headers: true) do |row|
     isbn: "#{isbn}"
     price: "#{price}"
     description: "#{description}"
+    size: "#{size}"
+    review: "#{review}"
     cover_image: ""
     ---
     

@@ -15,13 +15,21 @@ def slugify(value):
 
 def create_markdown(row):
     # TSV 컬럼 매핑 (0-based index)
-    # 발행일: 14, 정가: 7, 페이지수: 11
-    publish_date = row[14].strip()
+    # 발행일: 13, 정가: 7, 페이지수: 11, 가로: 9, 세로: 10, 서평(신규): 15
+    publish_date = row[13].strip()
     year = publish_date[:4] if len(publish_date) >= 4 else "2024"
 
     # 설명 생성 (주제어 삭제됨)
     page_count = row[11].strip()
     price = row[7].strip().replace('"', '')
+    
+    # 판형 정보 생성 (가로 × 세로)mm
+    width = row[9].strip()
+    height = row[10].strip()
+    size = f"{width} × {height}mm" if width and height else ""
+
+    # 출판사 서평 가져오기 (마지막 열)
+    review = row[15].strip() if len(row) > 15 else ""
     
     description = f"도서입니다. ({page_count}쪽)"
     
@@ -38,6 +46,8 @@ year: {year}
 isbn: "{isbn}"
 price: "{price}"
 description: "{description}"
+size: "{size}"
+review: "{review}"
 cover_image: ""
 ---
 

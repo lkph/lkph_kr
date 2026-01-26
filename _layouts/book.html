@@ -30,6 +30,11 @@ layout: default
             <dt>출판년도</dt>
             <dd>{{ page.year }}</dd>
 
+            {% if page.size %}
+            <dt>판형</dt>
+            <dd>{{ page.size }}</dd>
+            {% endif %}
+
             <dt>ISBN</dt>
             <dd>{{ page.isbn }}</dd>
         </dl>
