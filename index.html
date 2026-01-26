@@ -2,28 +2,25 @@
 # =============================================================================
 # 메인 페이지 (Books Gallery)
 # =============================================================================
-# 이 페이지는 _data/books.yml 파일의 데이터를 읽어와
+# 이 페이지는 _books 폴더의 마크다운 파일들을 읽어와
 # CSS Grid 갤러리 형태로 책 목록을 표시합니다.
 # =============================================================================
 layout: default
 title: Books
 ---
 
-<!-- 책 갤러리 -->
-<section class="books-gallery">
-    {% comment %}
-    =============================================================================
-    Liquid 템플릿 설명:
-    - site.books: _books 폴더의 마크다운 파일들을 가져옵니다 (Jekyll Collection)
-    - sort: 'date' | reverse: 발행일 최신순으로 정렬합니다
-    - for 루프: 각 책에 대해 카드를 생성합니다
-    - url: 상세 페이지로 이동하는 링크를 생성합니다
-    =============================================================================
-    {% endcomment %}
+<!-- 정렬 네비게이션 -->
+<div class="sort-nav">
+    <button class="sort-btn active" data-sort="newest">Newest</button>
+    <button class="sort-btn" data-sort="alpha">A-Z</button>
+</div>
 
+<!-- 책 갤러리 -->
+<section class="books-gallery" id="books-gallery">
     {% assign sorted_books = site.books | sort: 'date' | reverse %}
     {% for book in sorted_books %}
-    <a href="{{ book.url | relative_url }}" class="book-card-link">
+    <a href="{{ book.url | relative_url }}" class="book-card-link" data-title="{{ book.title }}"
+        data-date="{{ book.date | date: '%s' }}">
         <article class="book-card">
             <!-- 책 표지 -->
             <div class="book-cover">
@@ -47,3 +44,41 @@ title: Books
     </a>
     {% endfor %}
 </section>
+
+<!-- 정렬 스크립트 -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const gallery = document.getElementById('books-gallery');
+        const buttons = document.querySelectorAll('.sort-btn');
+        const items = Array.from(document.querySelectorAll('.book-card-link'));
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const sortType = button.getAttribute('data-sort');
+
+                // 버튼 활성화 상태 변경
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // 정렬 로직
+                const sortedItems = items.sort((a, b) => {
+                    if (sortType === 'newest') {
+                        // 최신순 (날짜 내림차순)
+                        const dateA = parseInt(a.getAttribute('data-date')) || 0;
+                        const dateB = parseInt(b.getAttribute('data-date')) || 0;
+                        return dateB - dateA;
+                    } else if (sortType === 'alpha') {
+                        // 가나다순 (제목 오름차순)
+                        const titleA = a.getAttribute('data-title').toLowerCase();
+                        const titleB = b.getAttribute('data-title').toLowerCase();
+                        return titleA.localeCompare(titleB);
+                    }
+                });
+
+                // DOM 재배치
+                gallery.innerHTML = '';
+                sortedItems.forEach(item => gallery.appendChild(item));
+            });
+        });
+    });
+</script>
