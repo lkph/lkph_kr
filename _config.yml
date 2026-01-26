@@ -9,8 +9,8 @@
 title: leekim
 description: "leekim publishing house - Art, Design, Independent Publishing"
 url: "https://lkph.github.io"
-# baseurl: "/lkph_kr"
-baseurl: ""
+baseurl: "/lkph_kr"
+# baseurl: ""
 
 # 브랜드 정보 (레이아웃에서 site.brand로 접근 가능)
 brand:
