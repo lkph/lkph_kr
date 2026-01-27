@@ -10,113 +10,63 @@
        - Off-canvas 슬라이드 메뉴
        - Footer
        ======================================================================= -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="leekim publishing house">
-  <meta name="keywords" content="Art, Design, Independent, Minimal, Classic">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="leekim publishing house">
+<meta name="keywords" content="Art, Design, Independent, Minimal, Classic">
 
-  <title>생명의 여정 | leekim publishing house</title>
+<title>생명의 여정 | leekim publishing house</title>
 
-  <!-- 스타일시트 -->
-  <link rel="stylesheet" href="/assets/css/custom.css">
+<!-- 스타일시트 -->
+<link rel="stylesheet" href="/assets/css/custom.css">
 </head>
 
 <body>
   <!-- =====================================================================
        HEADER - Sticky Header
        ===================================================================== -->
-  <header class="site-header">
+<header class="site-header">
     <!-- 현재 메뉴 (좌측) -->
     <div class="current-page-label">
-      생명의 여정
+        생명의 여정
     </div>
 
     <!-- 로고 (중앙) -->
     <a href="/" class="logo">leekim publishing house</a>
 
-  </header>
+</header>
 
-  <!-- 햄버거 메뉴 버튼 (전역 배치로 가시성 확보) -->
-  <button class="menu-toggle" aria-label="메뉴 토글" onclick="toggleMenu()">
+<!-- 햄버거 메뉴 버튼 (전역 배치로 가시성 확보) -->
+<button class="menu-toggle" aria-label="메뉴 토글" onclick="toggleMenu()">
     <span class="hamburger-line"></span>
     <span class="hamburger-line"></span>
-  </button>
+</button>
 
-  <!-- =====================================================================
+<!-- =====================================================================
        OFF-CANVAS MENU - 우측 슬라이드 메뉴
        ===================================================================== -->
-  <!-- 메뉴 오버레이 (배경 어둡게) -->
-  <div class="menu-overlay" onclick="toggleMenu()"></div>
+<!-- 메뉴 오버레이 (배경 어둡게) -->
+<div class="menu-overlay" onclick="toggleMenu()"></div>
 
-  <nav class="menu-panel">
+<nav class="menu-panel">
     <!-- 네비게이션 링크 -->
     <ul class="menu-nav">
-      <li><a href="/">Books</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
+        <li><a href="/">Books</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
     </ul>
 
     <!-- 메뉴 하단 정보 -->
     <div class="menu-footer">
-      <p>leekim publishing house</p>
+        <p>leekim publishing house</p>
     </div>
-  </nav>
+</nav>
 
   <!-- =====================================================================
        MAIN CONTENT - 페이지 본문
        ===================================================================== -->
   <main class="site-main">
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -152,15 +102,42 @@
     <div class="book-detail-info">
         <h1 class="book-detail-title">생명의 여정</h1>
 
-        <!-- 부제 (TSV에서 가져옴) -->
+        <!-- 부제 -->
+        
+        <p class="book-detail-subtitle">생물은 어떻게 자연세계를 형성해 왔을까</p>
         
 
-        <p class="book-detail-author">피터 고프리스미스</p>
+        <!-- 저자 / 번역 -->
+        <p class="book-detail-author">
+            피터 고프리스미스 | 이송찬 옮김
+        </p>
 
         <!-- 메타 정보 -->
         <dl class="book-detail-meta">
-            <dt>출판년도</dt>
-            <dd>2025</dd>
+            
+            <dt>출판사</dt>
+            <dd>이김</dd>
+            
+
+            
+            <dt>출간일</dt>
+            <dd>2025-10-01</dd>
+            
+
+            
+            <dt>출간상태</dt>
+            <dd>출간</dd>
+            
+
+            
+            <dt>정가</dt>
+            <dd>22,000원</dd>
+            
+
+            
+            <dt>페이지</dt>
+            <dd>432쪽</dd>
+            
 
             
             <dt>판형</dt>
@@ -169,54 +146,49 @@
 
             <dt>ISBN</dt>
             <dd>979-11-89680-58-9</dd>
-
-            
-
-            
         </dl>
 
-        <!-- 책 소개 (TSV에서 가져옴) -->
+        <!-- 책 소개 -->
         
         <section class="book-detail-section">
             <h2>책 소개</h2>
-            <p>도서입니다. (432쪽)</p>
+            <p>지구는 생명이 만들어낸 작품이다. 38억 년 전 작은 남세균이 광합성으로 내뿜은 산소는 행성 전체의 대기를 바꾸어놓았고, 식물의 뿌리는 지형을 재설계했으며, 동물은 의식을 통해 이 세계를 변화시켜왔다. 우리가 숨 쉬는 공기부터 딛고 선 땅까지, 모든 것은 수많은 생명체가 남긴 흔적이다. 뉴욕 타임스가 '단서를 찾아 몸을 움직이는 몇 안 되는 철학자'라고 평한 피터 고프리스미스의 이 책은 '환경이 생명을 만들었다'는 기존의 관점을 뒤집어, '생명이 어떻게 이 행성을 만들었는가'라는 근본적 질문에 답한다.</p>
         </section>
         
 
-        <!-- 출판사 서평 (TSV에서 가져옴) -->
+        <!-- 목차 -->
+        
+        <section class="book-detail-section">
+            <h2>목차</h2>
+            <div class="book-toc">1. 샤크 베이<br><br><b>1부. 변형 (TRANSFORMATION)</b><br>2. 생명이 깃든 지구<br>3. 숲<br>4. 오르페우스<br><br><b>2부. 우리는 누구인가 (WHO WE ARE)</b><br>5. 인간이라는 존재<br>6. 의식<br><br><b>3부. 지구에서 사는 것 (LIVING ON EARTH)</b><br>7. 다른 생명들<br>8. 야생 자연<br>9. 해산<br><br>미주<br>감사의 말<br>옮긴이의 말<br>찾아보기</div>
+        </section>
         
 
-        <!-- 추천사 (TSV에서 가져옴) -->
+        <!-- 출판사 서평 -->
+        
+        <section class="book-detail-section">
+            <h2>출판사 서평</h2>
+            <div class="book-publisher-review"><p><b>생명이 지구를 만들었다면, 인간은 무엇을 해야 하는가?</b><br>헌신적인 자연 세계 관찰자 피터 고프리스미스가 제시하는 생명과 의식 그리고 지구의 역사에 대한 새로운 해석</p><p>호주의 자연을 바라보는 경험은 특별하다. 대산호초의 눈부신 생명력 앞에서, 광활한 사막과, 우거진 원시림 속에서, 사람들은 두려움과 감탄이 뒤섞인 감정을 느낀다. 그것은 바로 경외감이다.</p><p>철학자 피터 고프리스미스 역시 그런 호주인 중 한 명이었다. 철학이라는 학문이 전통적으로 문헌 연구와 이론적 사유에 기반을 둘 때, 그는 직접 바다 속으로 뛰어들었다. 스쿠버다이빙 장비를 착용하고 바닷속을 탐험하던 그는 운명적인 만남을 가지게 된다. 바로 문어와의 조우였다.</p><p>다이빙을 하며 문어라는 생명체를 만나 그의 마음과 의식에 대해 깊이 탐구해 온 저자는 세계적 베스트셀러 『아더 마인즈』에서 '결국 문어와 인간은 생명의 나무에 함께 있는 존재'라며 가장 다르지만 동등한 지위를 가진 생물이라고 주장한다. 『후생동물』에서 이후 그 대상을 확대해 지구상의 모든 후생동물들 역시 자신들의 생각을 펼치며 살고 있음을 탐구한다. 이제 고프리스미스는 바깥으로 시선을 돌려 '의식 3부작'의 완결편 『생명의 여정』을 내놓았다.</p><p><br><b>산소를 만들어낸 박테리아</b><br>지구 역사상 가장 극적인 변화는 미생물에서 시작되었다. 38억 년 전 남세균(시아노박테리아)들은 광합성을 해서 에너지를 만들고 그 부산물로 산소를 내놓았다.</p><p><br><b>지형을 재설계한 식물</b><br>생명이 육지로 진출하며 그 영향력은 더욱 명확해졌다. 식물은 단순히 육지에 정착한 것이 아니라 지형 자체를 다시 설계했다.</p><p><br><b>의도를 가진 건축가 동물과 그들의 세계 움벨트</b><br>동물들은 의식과 함께 환경을 변화시켰다. 고프리스미스는 우리를 '움벨트(Umwelt)'라는 철학적 개념으로 초대한다.</p><p><br><b>인간, 그리고 우리의 책임</b><br>피터 고프리스미스는 인간을 자연의 '파괴자'나 '침입자'로 보는 관점에는 의문을 제기한다. 그는 감사와 유대감이라는 근본적인 윤리를 제안한다.</p><p>이 책을 읽고 나면 주변을 다른 눈으로 보게 될 것이다. 공원의 나무 한 그루도 수백만 년간 이어진 환경 변형의 결과이고, 길가의 개미들도 각자의 방식으로 세계를 변화시키는 '동료 엔지니어'임을 깨닫게 된다.</p><br><h3>추천사</h3><blockquote>피터 고프리스미스의 에센셜 트릴로지 완결편인 이 책은 생명으로, 정신으로, 의식으로까지 가득한 자연 세계에 대한 포괄적이고 신중하며 용기 있는 탐구를 보여준다.<br>— 아닐 세스 (서식스 대학교 의식과학센터 센터장)</blockquote><blockquote>이 책은 다른 동물들과 우리의 관계에 관한 긴급한 윤리적 문제들에 대해 명쾌하고 사려 깊은 논의를 제공한다.<br>— 앨리슨 고프닉 (캘리포니아 대학교 버클리 캠퍼스 교수)</blockquote><blockquote>지금 우리가 서 있는 이 자리에 남겨진 것들과 미래를 이해하기 위해 반드시 읽어야 할 책.<br>— 데이비드 이글먼 (스탠퍼드 대학교 신경과학과 교수)</blockquote></div>
+        </section>
+        
+
+        <!-- 저자 소개 -->
+        
+        <section class="book-detail-section">
+            <h2>저자 소개</h2>
+            <p>생물철학자이자 정신철학자. 시드니 대학교를 졸업하고 캘리포니아 대학교 샌디에이고에서 철학박사 학위를 받았다. 스탠퍼드 대학교와 하버드 대학교, 호주 국립대학교, 뉴욕 시립대학교 대학원에서 철학을 가르쳤고, 현재 시드니 대학교의 과학사-과학철학 교수로 재직 중이다. <br>2022년 미국철학학회(American Philosophical Society)의 정회원으로 선출되었다. 숙련된 스쿠버 다이버이며 자연의 관찰자이기도 한 피터 고프리스미스는 직접 생물을 관찰하며 철학적 탐구를 수행한다.</p>
+        </section>
+        
+
+        <!-- 번역자 소개 -->
+        
+        <section class="book-detail-section">
+            <h2>번역자 소개</h2>
+            <p>대학에서 생명과학을 전공하고 과학 전문 편집자로 일하며 과학과 그 주변의 이야기들에 물성을 부여하는 일을 하고 있다. 빠르게 변화하는 과학기술 분야를 지속적으로 탐구하며, 편집자로서 기른 언어 감각을 바탕으로 정확하고 아름다운 지식을 전달하기 위해 힘쓰고 있다.</p>
+        </section>
         
 
         <!-- 서평 (기존 front matter에서) -->
-        
-
-        <!-- 본문 (마크다운 내용) -->
-        
-        <section class="book-detail-section book-detail-content">
-            <h1 id="생명의-여정">생명의 여정</h1>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>피터 고프리스미스</strong> 저</td>
-      <td><strong>2025</strong>년 발행</td>
-      <td><strong>22,000</strong>원</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="책-소개">책 소개</h2>
-
-<p>생명의 여정 관련 도서입니다.</p>
-
-<ul>
-  <li><strong>ISBN</strong>: 979-11-89680-58-9</li>
-  <li><strong>페이지</strong>: 432쪽</li>
-</ul>
-
-        </section>
         
 
         <!-- 뒤로가기 -->
@@ -228,26 +200,25 @@
   <!-- =====================================================================
        FOOTER
        ===================================================================== -->
-  <footer class="site-footer">
+<footer class="site-footer">
     <p>&copy; 2026 leekim publishing house. All rights reserved.</p>
-  </footer>
-
+</footer>
   <!-- =====================================================================
        JAVASCRIPT - 메뉴 토글 기능
        ===================================================================== -->
-  <script>
+<script>
     // 메뉴 열기/닫기 토글 함수
     function toggleMenu() {
-      document.body.classList.toggle('menu-open');
+        document.body.classList.toggle('menu-open');
     }
 
     // ESC 키로 메뉴 닫기
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
-        toggleMenu();
-      }
+        if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+            toggleMenu();
+        }
     });
-  </script>
+</script>
 </body>
 
 </html>

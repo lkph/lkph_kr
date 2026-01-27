@@ -1,0 +1,17 @@
+<!-- =======================================================================
+       leekim publishing house - 기본 레이아웃
+       =======================================================================
+       이 파일은 모든 페이지에 적용되는 공통 레이아웃입니다.
+       - Sticky Header (로고 + 햄버거 메뉴)
+       - Off-canvas 슬라이드 메뉴
+       - Footer
+       ======================================================================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ site.description }}">
+<meta name="keywords" content="{{ site.brand.keywords }}">
+
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+
+<!-- 스타일시트 -->
+<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">

@@ -3,11 +3,6 @@
 
 /* =============================================================================
    leekim publishing house - 스타일시트
-   =============================================================================
-   디자인 시스템:
-   - 배경색: #F0F0F0 (Off-White, 차분한 미색)
-   - 텍스트/강조색: #001F3F (Deep Navy, 짙은 남색)
-   - 폰트: Spectral (영문/숫자), Pretendard (국문)
    ============================================================================= */
 
 /* =============================================================================
@@ -17,7 +12,9 @@
   /* 색상 - leekim publishing house 테마 */
   --color-bg: #F4F4F4;
   --color-text: #0055A4;
+  /* 기존 001F3F 대신 강제되던 0055A4로 통일 */
   --color-accent: #0055A4;
+  --color-border: #0055A4;
 
   /* 타이포그래피 */
   --font-family: "Spectral", "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
@@ -53,19 +50,34 @@ html {
 
 body {
   font-family: var(--font-family);
-  background-color: #F4F4F4;
-  color: #0055A4 !important;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding-top: var(--header-height);
-  /* Fixed 헤더 공간 확보 */
+}
+
+/* 이전 코드에서 !important로 덮어쓰던 것들을 기본 세팅으로 흡수 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+li,
+dt,
+dd,
+blockquote {
+  color: var(--color-text);
 }
 
 a {
-  color: #0055A4 !important;
-  /* 강제 적용 */
   text-decoration: none;
   transition: opacity var(--transition-speed);
 }
@@ -81,26 +93,21 @@ img {
 }
 
 /* =============================================================================
-   HEADER - Sticky Header
+   HEADER - Fixed Header
    ============================================================================= */
 .site-header {
   position: fixed;
-  /* sticky에서 fixed로 변경하여 항상 최상단 고정 */
   top: 0;
   left: 0;
   right: 0;
   height: var(--header-height);
   background-color: var(--color-bg);
-  color: #0055A4 !important;
-  border-bottom: 1px solid #0055A4;
-  /* 보더 색상도 직접 지정 */
+  border-bottom: 1px solid var(--color-border);
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  /* 좌(현재메뉴), 중(로고), 우(햄버거) */
   align-items: center;
   padding: 0 calc(var(--spacing-unit) * 1.5);
   z-index: 250;
-  /* 메뉴 패널보다는 높고 메뉴 토글보다는 낮은 오버레이 레이어 */
 }
 
 /* 현재 페이지 라벨 (좌측) */
@@ -120,19 +127,12 @@ img {
   text-align: center;
 }
 
-.menu-toggle {
-  grid-column: 3;
-  justify-self: end;
-}
-
 /* =============================================================================
    햄버거 메뉴 버튼
    ============================================================================= */
-/* 햄버거 메뉴 버튼 - 화면 우측 상단 고정 */
 .menu-toggle {
   position: fixed;
   top: 16px;
-  /* 헤더 중앙 부근 */
   right: calc(var(--spacing-unit) * 1.5);
   display: flex;
   flex-direction: column;
@@ -151,66 +151,51 @@ img {
   display: block;
   width: 100%;
   height: 2px;
-  background-color: #0055A4 !important;
-  /* 강제 적용 */
+  background-color: var(--color-text);
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   transform-origin: center;
 }
 
-/* 메뉴 열림 상태 - 2줄이 X자로 변환 */
+/* 메뉴 열림 상태 */
 .menu-open .menu-toggle .hamburger-line:nth-child(1) {
   transform: translateY(4px) rotate(45deg);
-  /* 아래로 이동 후 회전 */
 }
 
 .menu-open .menu-toggle .hamburger-line:nth-child(2) {
   transform: translateY(-4px) rotate(-45deg);
-  /* 위로 이동 후 회전 */
 }
 
 /* =============================================================================
    OFF-CANVAS 메뉴 패널
    ============================================================================= */
-/* 오버레이 (어두운 배경) - 사용 안함 */
 .menu-overlay {
   display: none;
 }
 
-/* 메뉴 패널 - 헤더 전체를 덮는 오버레이 */
 .menu-panel {
   position: fixed;
-  /* absolute에서 fixed로 변경하여 스크롤 시에도 유지 */
   top: 0;
   left: 0;
   width: 100%;
   height: var(--header-height);
-  /* 헤더 높이만큼만 가림 */
   background-color: var(--color-bg);
-  color: #0055A4 !important;
-
-  /* Slide 효과 제거, Fade 효과 적용 */
-  /* transform: translateX(100%); */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-
-  /* z-index: 280 - 헤더(250)보다 높고 버튼(300)보다 낮음 */
   z-index: 280;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* 왼쪽 정렬 */
   padding: 0 calc(var(--spacing-unit) * 1.5);
-  border-bottom: 1px solid #0055A4;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .menu-open .menu-panel {
-  /* transform: translateX(0); */
   opacity: 1;
   visibility: visible;
 }
 
-/* 메뉴 열림 시 기존 요소 숨기기 (Fade Out) */
+/* 메뉴 열림 시 본문 내용 Fade Out */
 .site-main,
 .site-footer,
 .logo,
@@ -226,35 +211,7 @@ img {
   pointer-events: none;
 }
 
-/* 닫기 버튼 - 햄버거 토글로 대체됨 */
-.menu-close {
-  display: none !important;
-}
-
-/* 색상 강제 지정 (Global Override) */
-* {
-  color: #0055A4 !important;
-}
-
-body,
-html,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a,
-span,
-li,
-dt,
-dd,
-blockquote {
-  color: #0055A4 !important;
-}
-
-/* 네비게이션 링크 - 가로 배치 */
+/* 네비게이션 링크 */
 .menu-nav {
   list-style: none;
   display: flex;
@@ -267,18 +224,12 @@ blockquote {
 }
 
 .menu-nav a {
-  color: var(--color-text);
   font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.menu-nav a:hover {
-  opacity: 0.7;
-}
-
-/* 메뉴 하단 정보 - 사용 안함 */
 .menu-footer {
   display: none;
 }
@@ -301,11 +252,11 @@ blockquote {
   padding: calc(var(--spacing-unit) * 2);
   text-align: center;
   font-size: var(--font-size-small);
-  border-top: 1px solid var(--color-text);
+  border-top: 1px solid var(--color-border);
 }
 
 /* =============================================================================
-   페이지 제목
+   페이지 요소
    ============================================================================= */
 .page-title {
   font-size: 2rem;
@@ -314,9 +265,6 @@ blockquote {
   letter-spacing: -0.02em;
 }
 
-/* =============================================================================
-   정렬 네비게이션
-   ============================================================================= */
 .sort-nav {
   display: flex;
   justify-content: flex-end;
@@ -336,27 +284,24 @@ blockquote {
   transition: color var(--transition-speed);
 }
 
-.sort-btn:hover {
+.sort-btn:hover,
+.sort-btn.active {
   color: var(--color-text);
 }
 
 .sort-btn.active {
-  color: var(--color-text);
   font-weight: 700;
   border-bottom: 2px solid var(--color-text);
 }
 
-
 /* =============================================================================
-   BOOKS GALLERY - CSS Grid 갤러리
+   BOOKS GALLERY
    ============================================================================= */
 .books-gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* PC: 4열 */
   gap: 0;
   border: none;
-  /* 보더 제거 확인 */
 }
 
 .book-card {
@@ -368,13 +313,12 @@ blockquote {
 
 .book-card:hover {
   background-color: #F4F4F4;
+  /* hover시 미세한 배경 변화 */
 }
 
-/* 책 표지 이미지 */
 .book-cover {
   aspect-ratio: 2 / 3;
   background-color: transparent;
-  /* 배경색 제거 */
   overflow: hidden;
   margin-bottom: var(--spacing-unit);
   display: flex;
@@ -384,13 +328,11 @@ blockquote {
 
 .book-cover img {
   max-width: 90%;
-  /* 이미지가 꽉 차지 않도록 조정 */
   max-height: 90%;
   width: auto;
   height: auto;
   object-fit: contain;
-  box-shadow: 0 4px 10px rgba(0, 0, 1, 0);
-  /* 책 같은 느낌을 위한 그림자 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform var(--transition-speed);
 }
 
@@ -398,20 +340,19 @@ blockquote {
   transform: scale(1.05);
 }
 
-/* 플레이스홀더 (이미지 없을 때) */
 .book-cover-placeholder {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-bg);
+  color: #999;
   font-size: var(--font-size-small);
   text-align: center;
   padding: var(--spacing-unit);
+  border: 1px dashed #ccc;
 }
 
-/* 책 정보 */
 .book-info {
   flex: 1;
 }
@@ -435,7 +376,7 @@ blockquote {
 }
 
 /* =============================================================================
-   ABOUT / CONTACT 페이지 스타일
+   ABOUT / CONTACT
    ============================================================================= */
 .page-content {
   max-width: 700px;
@@ -453,7 +394,7 @@ blockquote {
 }
 
 /* =============================================================================
-   책 상세 페이지 스타일
+   책 상세 페이지
    ============================================================================= */
 .book-detail {
   display: grid;
@@ -473,20 +414,6 @@ blockquote {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* 상세 페이지 표지 플레이스홀더 */
-.book-detail-cover .book-cover-placeholder {
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  background-color: #E0E0E0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #001F3F;
-  font-size: 1rem;
-  text-align: center;
-}
-
-/* 상세 페이지 정보 영역 */
 .book-detail-info {
   display: flex;
   flex-direction: column;
@@ -518,15 +445,12 @@ blockquote {
   gap: 0.5rem 1rem;
   margin-bottom: calc(var(--spacing-unit) * 2);
   padding: var(--spacing-unit);
-  background-color: rgba(0, 31, 63, 0.05);
+  background-color: rgba(0, 85, 164, 0.05);
+  /* 0055A4의 연한 버전 */
 }
 
 .book-detail-meta dt {
   font-weight: 600;
-}
-
-.book-detail-meta dd {
-  margin: 0;
 }
 
 .book-detail-section {
@@ -554,8 +478,32 @@ blockquote {
   font-weight: 500;
 }
 
-/* 모바일 책 상세 */
+/* =============================================================================
+   Media Queries
+   ============================================================================= */
+@media (max-width: 900px) {
+  .books-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 600px) {
+  :root {
+    --font-size-base: 16px;
+  }
+
+  .books-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .menu-nav a {
+    font-size: 0.875rem;
+  }
+
   .book-detail {
     grid-template-columns: 1fr;
   }
@@ -568,37 +516,5 @@ blockquote {
 
   .book-detail-title {
     font-size: 1.5rem;
-  }
-}
-
-/* =============================================================================
-   반응형 디자인 - 태블릿
-   ============================================================================= */
-@media (max-width: 900px) {
-  .books-gallery {
-    grid-template-columns: repeat(3, 1fr);
-    /* 태블릿: 3열 */
-  }
-}
-
-/* =============================================================================
-   반응형 디자인 - 모바일
-   ============================================================================= */
-@media (max-width: 600px) {
-  :root {
-    --font-size-base: 16px;
-  }
-
-  .books-gallery {
-    grid-template-columns: repeat(2, 1fr);
-    /* 모바일: 2열 */
-  }
-
-  .page-title {
-    font-size: 1.5rem;
-  }
-
-  .menu-nav a {
-    font-size: 0.875rem;
   }
 }

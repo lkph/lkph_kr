@@ -1,0 +1,39 @@
+<!-- =====================================================================
+       HEADER - Sticky Header
+       ===================================================================== -->
+<header class="site-header">
+    <!-- 현재 메뉴 (좌측) -->
+    <div class="current-page-label">
+        {% if page.title %}{{ page.title }}{% else %}Books{% endif %}
+    </div>
+
+    <!-- 로고 (중앙) -->
+    <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+
+</header>
+
+<!-- 햄버거 메뉴 버튼 (전역 배치로 가시성 확보) -->
+<button class="menu-toggle" aria-label="메뉴 토글" onclick="toggleMenu()">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+</button>
+
+<!-- =====================================================================
+       OFF-CANVAS MENU - 우측 슬라이드 메뉴
+       ===================================================================== -->
+<!-- 메뉴 오버레이 (배경 어둡게) -->
+<div class="menu-overlay" onclick="toggleMenu()"></div>
+
+<nav class="menu-panel">
+    <!-- 네비게이션 링크 -->
+    <ul class="menu-nav">
+        <li><a href="{{ '/' | relative_url }}">Books</a></li>
+        <li><a href="{{ '/about' | relative_url }}">About</a></li>
+        <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+    </ul>
+
+    <!-- 메뉴 하단 정보 -->
+    <div class="menu-footer">
+        <p>{{ site.brand.full_name }}</p>
+    </div>
+</nav>

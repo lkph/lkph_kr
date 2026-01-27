@@ -8,4 +8,8 @@
 source "https://rubygems.org"
 
 # GitHub Pages gem (Jekyll 및 관련 플러그인 포함)
-gem "github-pages", group: :jekyll_plugins
+# gem "github-pages", group: :jekyll_plugins
+gem "jekyll"
+gem "base64"
+gem "bigdecimal"
+gem "kramdown-parser-gfm"

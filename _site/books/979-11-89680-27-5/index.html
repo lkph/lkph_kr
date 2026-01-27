@@ -10,83 +10,63 @@
        - Off-canvas 슬라이드 메뉴
        - Footer
        ======================================================================= -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="leekim publishing house">
-  <meta name="keywords" content="Art, Design, Independent, Minimal, Classic">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="leekim publishing house">
+<meta name="keywords" content="Art, Design, Independent, Minimal, Classic">
 
-  <title>블루 노트 | leekim publishing house</title>
+<title>블루 노트 | leekim publishing house</title>
 
-  <!-- 스타일시트 -->
-  <link rel="stylesheet" href="/assets/css/custom.css">
+<!-- 스타일시트 -->
+<link rel="stylesheet" href="/assets/css/custom.css">
 </head>
 
 <body>
   <!-- =====================================================================
        HEADER - Sticky Header
        ===================================================================== -->
-  <header class="site-header">
+<header class="site-header">
     <!-- 현재 메뉴 (좌측) -->
     <div class="current-page-label">
-      블루 노트
+        블루 노트
     </div>
 
     <!-- 로고 (중앙) -->
     <a href="/" class="logo">leekim publishing house</a>
 
-  </header>
+</header>
 
-  <!-- 햄버거 메뉴 버튼 (전역 배치로 가시성 확보) -->
-  <button class="menu-toggle" aria-label="메뉴 토글" onclick="toggleMenu()">
+<!-- 햄버거 메뉴 버튼 (전역 배치로 가시성 확보) -->
+<button class="menu-toggle" aria-label="메뉴 토글" onclick="toggleMenu()">
     <span class="hamburger-line"></span>
     <span class="hamburger-line"></span>
-  </button>
+</button>
 
-  <!-- =====================================================================
+<!-- =====================================================================
        OFF-CANVAS MENU - 우측 슬라이드 메뉴
        ===================================================================== -->
-  <!-- 메뉴 오버레이 (배경 어둡게) -->
-  <div class="menu-overlay" onclick="toggleMenu()"></div>
+<!-- 메뉴 오버레이 (배경 어둡게) -->
+<div class="menu-overlay" onclick="toggleMenu()"></div>
 
-  <nav class="menu-panel">
+<nav class="menu-panel">
     <!-- 네비게이션 링크 -->
     <ul class="menu-nav">
-      <li><a href="/">Books</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
+        <li><a href="/">Books</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
     </ul>
 
     <!-- 메뉴 하단 정보 -->
     <div class="menu-footer">
-      <p>leekim publishing house</p>
+        <p>leekim publishing house</p>
     </div>
-  </nav>
+</nav>
 
   <!-- =====================================================================
        MAIN CONTENT - 페이지 본문
        ===================================================================== -->
   <main class="site-main">
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -152,15 +132,42 @@
     <div class="book-detail-info">
         <h1 class="book-detail-title">블루 노트</h1>
 
-        <!-- 부제 (TSV에서 가져옴) -->
+        <!-- 부제 -->
+        
+        <p class="book-detail-subtitle">20대 청춘의 우울하고 현실적인 삶의 단면</p>
         
 
-        <p class="book-detail-author">이묵돌</p>
+        <!-- 저자 / 번역 -->
+        <p class="book-detail-author">
+            이묵돌 |  옮김
+        </p>
 
         <!-- 메타 정보 -->
         <dl class="book-detail-meta">
-            <dt>출판년도</dt>
-            <dd>2021</dd>
+            
+            <dt>출판사</dt>
+            <dd>이김</dd>
+            
+
+            
+            <dt>출간일</dt>
+            <dd>2021-06-01</dd>
+            
+
+            
+            <dt>출간상태</dt>
+            <dd>출간</dd>
+            
+
+            
+            <dt>정가</dt>
+            <dd>16,500원</dd>
+            
+
+            
+            <dt>페이지</dt>
+            <dd>336쪽</dd>
+            
 
             
             <dt>판형</dt>
@@ -169,54 +176,29 @@
 
             <dt>ISBN</dt>
             <dd>979-11-89680-27-5</dd>
-
-            
-
-            
         </dl>
 
-        <!-- 책 소개 (TSV에서 가져옴) -->
+        <!-- 책 소개 -->
         
         <section class="book-detail-section">
             <h2>책 소개</h2>
-            <p>도서입니다. (336쪽)</p>
+            <p>이묵돌 작가의 단편 소설집으로, 20대 청춘의 우울하고 현실적인 삶의 단면을 섬세하게 그려냈습니다. 총 32편의 이야기를 담고 있으며, 한때는 우울하고 창백해 보이던 일들이 시간이 지나 따뜻하게 기억될 수 있음을 보여주고자 합니다.</p>
         </section>
         
 
-        <!-- 출판사 서평 (TSV에서 가져옴) -->
+        <!-- 목차 -->
         
 
-        <!-- 추천사 (TSV에서 가져옴) -->
+        <!-- 출판사 서평 -->
+        
+
+        <!-- 저자 소개 -->
+        
+
+        <!-- 번역자 소개 -->
         
 
         <!-- 서평 (기존 front matter에서) -->
-        
-
-        <!-- 본문 (마크다운 내용) -->
-        
-        <section class="book-detail-section book-detail-content">
-            <h1 id="블루-노트">블루 노트</h1>
-
-<table>
-  <tbody>
-    <tr>
-      <td><strong>이묵돌</strong> 저</td>
-      <td><strong>2021</strong>년 발행</td>
-      <td><strong>16,500</strong>원</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="책-소개">책 소개</h2>
-
-<p>블루 노트 관련 도서입니다.</p>
-
-<ul>
-  <li><strong>ISBN</strong>: 979-11-89680-27-5</li>
-  <li><strong>페이지</strong>: 336쪽</li>
-</ul>
-
-        </section>
         
 
         <!-- 뒤로가기 -->
@@ -228,26 +210,25 @@
   <!-- =====================================================================
        FOOTER
        ===================================================================== -->
-  <footer class="site-footer">
+<footer class="site-footer">
     <p>&copy; 2026 leekim publishing house. All rights reserved.</p>
-  </footer>
-
+</footer>
   <!-- =====================================================================
        JAVASCRIPT - 메뉴 토글 기능
        ===================================================================== -->
-  <script>
+<script>
     // 메뉴 열기/닫기 토글 함수
     function toggleMenu() {
-      document.body.classList.toggle('menu-open');
+        document.body.classList.toggle('menu-open');
     }
 
     // ESC 키로 메뉴 닫기
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
-        toggleMenu();
-      }
+        if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+            toggleMenu();
+        }
     });
-  </script>
+</script>
 </body>
 
 </html>

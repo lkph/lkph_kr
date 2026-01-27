@@ -4,7 +4,7 @@
 # =============================================================================
 # 이 레이아웃은 개별 책의 상세 정보를 표시합니다.
 # _books 폴더에 있는 마크다운 파일에 적용됩니다.
-# TSV 데이터에서 부제, 책 소개, 출판사 서평, 추천사를 가져옵니다.
+# TSV 데이터에서 모든 책 정보를 가져옵니다.
 # =============================================================================
 layout: default
 ---
@@ -19,6 +19,40 @@ TSV 데이터에서 현재 책의 정보를 ISBN으로 조회
 {% break %}
 {% endif %}
 {% endfor %}
+
+{% comment %}
+한글 필드명을 별도 변수에 할당 (Liquid 호환성)
+{% endcomment %}
+{% assign book_subtitle = "" %}
+{% assign book_intro = "" %}
+{% assign book_toc = "" %}
+{% assign publisher_review = "" %}
+{% assign book_recommend = "" %}
+{% assign book_price = "" %}
+{% assign book_pages = "" %}
+{% assign book_status = "" %}
+{% assign book_date = "" %}
+{% assign book_imprint = "" %}
+{% assign book_width = "" %}
+{% assign book_height = "" %}
+{% assign book_translator = "" %}
+
+{% if book_data %}
+{% assign book_subtitle = book_data["부제"] %}
+{% assign book_intro = book_data["책 소개"] %}
+{% assign book_toc = book_data["목차"] %}
+{% assign publisher_review = book_data["출판사 서평"] %}
+{% assign book_price = book_data["정가"] %}
+{% assign book_pages = book_data["페이지수"] %}
+{% assign book_status = book_data["출간상태"] %}
+{% assign book_date = book_data["출간일"] %}
+{% assign book_imprint = book_data["임프린트"] %}
+{% assign book_width = book_data["가로"] %}
+{% assign book_height = book_data["세로"] %}
+{% assign book_translator = book_data["번역"] %}
+{% assign author_intro = book_data["저자 소개"] %}
+{% assign translator_intro = book_data["번역자 소개"] %}
+{% endif %}
 
 <article class="book-detail">
     <!-- 책 표지 -->
@@ -36,42 +70,60 @@ TSV 데이터에서 현재 책의 정보를 ISBN으로 조회
     <div class="book-detail-info">
         <h1 class="book-detail-title">{{ page.title }}</h1>
 
-        <!-- 부제 (TSV에서 가져옴) -->
-        {% if book_data.부제 and book_data.부제 != "" %}
-        <p class="book-detail-subtitle">{{ book_data.부제 }}</p>
+        <!-- 부제 -->
+        {% if book_subtitle != "" %}
+        <p class="book-detail-subtitle">{{ book_subtitle }}</p>
         {% endif %}
 
-        <p class="book-detail-author">{{ page.author }}</p>
+        <!-- 저자 / 번역 -->
+        <p class="book-detail-author">
+            {{ page.author }}{% if book_translator != "" %} | {{ book_translator }} 옮김{% endif %}
+        </p>
 
         <!-- 메타 정보 -->
         <dl class="book-detail-meta">
-            <dt>출판년도</dt>
-            <dd>{{ page.year }}</dd>
+            {% if book_imprint != "" %}
+            <dt>출판사</dt>
+            <dd>{{ book_imprint }}</dd>
+            {% endif %}
 
-            {% if page.size %}
+            {% if book_date != "" %}
+            <dt>출간일</dt>
+            <dd>{{ book_date }}</dd>
+            {% endif %}
+
+            {% if book_status != "" %}
+            <dt>출간상태</dt>
+            <dd>{{ book_status }}</dd>
+            {% endif %}
+
+            {% if book_price != "" %}
+            <dt>정가</dt>
+            <dd>{{ book_price }}원</dd>
+            {% endif %}
+
+            {% if book_pages != "" %}
+            <dt>페이지</dt>
+            <dd>{{ book_pages }}쪽</dd>
+            {% endif %}
+
+            {% if book_width != "" and book_height != "" %}
+            <dt>판형</dt>
+            <dd>{{ book_width }} × {{ book_height }}mm</dd>
+            {% elsif page.size %}
             <dt>판형</dt>
             <dd>{{ page.size }}</dd>
             {% endif %}
 
             <dt>ISBN</dt>
             <dd>{{ page.isbn }}</dd>
-
-            {% if book_data.정가 %}
-            <dt>가격</dt>
-            <dd>{{ book_data.정가 }}원</dd>
-            {% endif %}
-
-            {% if book_data.페이지수 %}
-            <dt>페이지</dt>
-            <dd>{{ book_data.페이지수 }}쪽</dd>
-            {% endif %}
         </dl>
 
-        <!-- 책 소개 (TSV에서 가져옴) -->
-        {% if book_data["책 소개"] and book_data["책 소개"] != "" %}
+        <!-- 책 소개 -->
+        {% if book_intro.size > 0 %}
         <section class="book-detail-section">
             <h2>책 소개</h2>
-            <p>{{ book_data["책 소개"] }}</p>
+            <p>{{ book_intro }}</p>
         </section>
         {% elsif page.description and page.description != "" %}
         <section class="book-detail-section">
@@ -80,19 +132,35 @@ TSV 데이터에서 현재 책의 정보를 ISBN으로 조회
         </section>
         {% endif %}
 
-        <!-- 출판사 서평 (TSV에서 가져옴) -->
-        {% if book_data["출판사 서평"] and book_data["출판사 서평"] != "" %}
+        <!-- 목차 -->
+        {% if book_toc.size > 0 %}
         <section class="book-detail-section">
-            <h2>출판사 서평</h2>
-            <p>{{ book_data["출판사 서평"] }}</p>
+            <h2>목차</h2>
+            <div class="book-toc">{{ book_toc }}</div>
         </section>
         {% endif %}
 
-        <!-- 추천사 (TSV에서 가져옴) -->
-        {% if book_data.추천사 and book_data.추천사 != "" %}
+        <!-- 출판사 서평 -->
+        {% if publisher_review.size > 0 %}
         <section class="book-detail-section">
-            <h2>추천사</h2>
-            <blockquote>{{ book_data.추천사 }}</blockquote>
+            <h2>출판사 서평</h2>
+            <div class="book-publisher-review">{{ publisher_review }}</div>
+        </section>
+        {% endif %}
+
+        <!-- 저자 소개 -->
+        {% if author_intro.size > 0 %}
+        <section class="book-detail-section">
+            <h2>저자 소개</h2>
+            <p>{{ author_intro }}</p>
+        </section>
+        {% endif %}
+
+        <!-- 번역자 소개 -->
+        {% if translator_intro.size > 0 %}
+        <section class="book-detail-section">
+            <h2>번역자 소개</h2>
+            <p>{{ translator_intro }}</p>
         </section>
         {% endif %}
 
@@ -101,13 +169,6 @@ TSV 데이터에서 현재 책의 정보를 ISBN으로 조회
         <section class="book-detail-section">
             <h2>서평</h2>
             <blockquote>{{ page.review }}</blockquote>
-        </section>
-        {% endif %}
-
-        <!-- 본문 (마크다운 내용) -->
-        {% if content != "" %}
-        <section class="book-detail-section book-detail-content">
-            {{ content }}
         </section>
         {% endif %}
 

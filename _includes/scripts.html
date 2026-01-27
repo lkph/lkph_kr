@@ -1,0 +1,16 @@
+<!-- =====================================================================
+       JAVASCRIPT - 메뉴 토글 기능
+       ===================================================================== -->
+<script>
+    // 메뉴 열기/닫기 토글 함수
+    function toggleMenu() {
+        document.body.classList.toggle('menu-open');
+    }
+
+    // ESC 키로 메뉴 닫기
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+            toggleMenu();
+        }
+    });
+</script>

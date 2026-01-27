@@ -28,6 +28,8 @@ defaults:
 # 빌드 설정
 markdown: kramdown
 highlighter: rouge
+safe: false
+plugins_dir: _plugins
 
 # 컬렉션 설정 (책 상세 페이지용)
 collections:

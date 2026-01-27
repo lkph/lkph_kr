@@ -10,57 +10,57 @@
        - Off-canvas 슬라이드 메뉴
        - Footer
        ======================================================================= -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="leekim publishing house">
-  <meta name="keywords" content="Art, Design, Independent, Minimal, Classic">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="leekim publishing house">
+<meta name="keywords" content="Art, Design, Independent, Minimal, Classic">
 
-  <title>Contact | leekim publishing house</title>
+<title>Contact | leekim publishing house</title>
 
-  <!-- 스타일시트 -->
-  <link rel="stylesheet" href="/assets/css/custom.css">
+<!-- 스타일시트 -->
+<link rel="stylesheet" href="/assets/css/custom.css">
 </head>
 
 <body>
   <!-- =====================================================================
        HEADER - Sticky Header
        ===================================================================== -->
-  <header class="site-header">
+<header class="site-header">
     <!-- 현재 메뉴 (좌측) -->
     <div class="current-page-label">
-      Contact
+        Contact
     </div>
 
     <!-- 로고 (중앙) -->
     <a href="/" class="logo">leekim publishing house</a>
 
-  </header>
+</header>
 
-  <!-- 햄버거 메뉴 버튼 (전역 배치로 가시성 확보) -->
-  <button class="menu-toggle" aria-label="메뉴 토글" onclick="toggleMenu()">
+<!-- 햄버거 메뉴 버튼 (전역 배치로 가시성 확보) -->
+<button class="menu-toggle" aria-label="메뉴 토글" onclick="toggleMenu()">
     <span class="hamburger-line"></span>
     <span class="hamburger-line"></span>
-  </button>
+</button>
 
-  <!-- =====================================================================
+<!-- =====================================================================
        OFF-CANVAS MENU - 우측 슬라이드 메뉴
        ===================================================================== -->
-  <!-- 메뉴 오버레이 (배경 어둡게) -->
-  <div class="menu-overlay" onclick="toggleMenu()"></div>
+<!-- 메뉴 오버레이 (배경 어둡게) -->
+<div class="menu-overlay" onclick="toggleMenu()"></div>
 
-  <nav class="menu-panel">
+<nav class="menu-panel">
     <!-- 네비게이션 링크 -->
     <ul class="menu-nav">
-      <li><a href="/">Books</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
+        <li><a href="/">Books</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
     </ul>
 
     <!-- 메뉴 하단 정보 -->
     <div class="menu-footer">
-      <p>leekim publishing house</p>
+        <p>leekim publishing house</p>
     </div>
-  </nav>
+</nav>
 
   <!-- =====================================================================
        MAIN CONTENT - 페이지 본문
@@ -99,26 +99,25 @@ leekim publishing house와 연락하고 싶으시다면 아래 방법을 이용�
   <!-- =====================================================================
        FOOTER
        ===================================================================== -->
-  <footer class="site-footer">
+<footer class="site-footer">
     <p>&copy; 2026 leekim publishing house. All rights reserved.</p>
-  </footer>
-
+</footer>
   <!-- =====================================================================
        JAVASCRIPT - 메뉴 토글 기능
        ===================================================================== -->
-  <script>
+<script>
     // 메뉴 열기/닫기 토글 함수
     function toggleMenu() {
-      document.body.classList.toggle('menu-open');
+        document.body.classList.toggle('menu-open');
     }
 
     // ESC 키로 메뉴 닫기
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
-        toggleMenu();
-      }
+        if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+            toggleMenu();
+        }
     });
-  </script>
+</script>
 </body>
 
 </html>
