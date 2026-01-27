@@ -4,9 +4,21 @@
 # =============================================================================
 # 이 레이아웃은 개별 책의 상세 정보를 표시합니다.
 # _books 폴더에 있는 마크다운 파일에 적용됩니다.
+# TSV 데이터에서 부제, 책 소개, 출판사 서평, 추천사를 가져옵니다.
 # =============================================================================
 layout: default
 ---
+
+{% comment %}
+TSV 데이터에서 현재 책의 정보를 ISBN으로 조회
+{% endcomment %}
+{% assign book_data = nil %}
+{% for item in site.data.books_import_data %}
+{% if item.ISBN == page.isbn %}
+{% assign book_data = item %}
+{% break %}
+{% endif %}
+{% endfor %}
 
 <article class="book-detail">
     <!-- 책 표지 -->
@@ -23,6 +35,12 @@ layout: default
     <!-- 책 정보 -->
     <div class="book-detail-info">
         <h1 class="book-detail-title">{{ page.title }}</h1>
+
+        <!-- 부제 (TSV에서 가져옴) -->
+        {% if book_data.부제 and book_data.부제 != "" %}
+        <p class="book-detail-subtitle">{{ book_data.부제 }}</p>
+        {% endif %}
+
         <p class="book-detail-author">{{ page.author }}</p>
 
         <!-- 메타 정보 -->
@@ -37,18 +55,49 @@ layout: default
 
             <dt>ISBN</dt>
             <dd>{{ page.isbn }}</dd>
+
+            {% if book_data.정가 %}
+            <dt>가격</dt>
+            <dd>{{ book_data.정가 }}원</dd>
+            {% endif %}
+
+            {% if book_data.페이지수 %}
+            <dt>페이지</dt>
+            <dd>{{ book_data.페이지수 }}쪽</dd>
+            {% endif %}
         </dl>
 
-        <!-- 책 소개 -->
-        {% if page.description %}
+        <!-- 책 소개 (TSV에서 가져옴) -->
+        {% if book_data["책 소개"] and book_data["책 소개"] != "" %}
+        <section class="book-detail-section">
+            <h2>책 소개</h2>
+            <p>{{ book_data["책 소개"] }}</p>
+        </section>
+        {% elsif page.description and page.description != "" %}
         <section class="book-detail-section">
             <h2>책 소개</h2>
             <p>{{ page.description }}</p>
         </section>
         {% endif %}
 
-        <!-- 서평 -->
-        {% if page.review %}
+        <!-- 출판사 서평 (TSV에서 가져옴) -->
+        {% if book_data["출판사 서평"] and book_data["출판사 서평"] != "" %}
+        <section class="book-detail-section">
+            <h2>출판사 서평</h2>
+            <p>{{ book_data["출판사 서평"] }}</p>
+        </section>
+        {% endif %}
+
+        <!-- 추천사 (TSV에서 가져옴) -->
+        {% if book_data.추천사 and book_data.추천사 != "" %}
+        <section class="book-detail-section">
+            <h2>추천사</h2>
+            <blockquote>{{ book_data.추천사 }}</blockquote>
+        </section>
+        {% endif %}
+
+        <!-- 서평 (기존 front matter에서) -->
+        {% if page.review and page.review != "" %}
         <section class="book-detail-section">
             <h2>서평</h2>
             <blockquote>{{ page.review }}</blockquote>

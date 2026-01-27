@@ -6,7 +6,7 @@
 # =============================================================================
 
 # 사이트 기본 정보
-title: leekim
+title: leekim publishing house
 description: "leekim publishing house"
 url: "https://lkph.kr"
 baseurl: ""
@@ -14,7 +14,7 @@ baseurl: ""
 
 # 브랜드 정보 (레이아웃에서 site.brand로 접근 가능)
 brand:
-  name: leekim
+  name: leekim publishing house
   full_name: leekim publishing house
   keywords: "Art, Design, Independent, Minimal, Classic"
 

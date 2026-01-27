@@ -48,6 +48,7 @@
 html {
   font-size: var(--font-size-base);
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -502,6 +503,13 @@ blockquote {
   font-size: 1.25rem;
   opacity: 0.8;
   margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.book-detail-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.7;
+  font-style: italic;
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
 }
 
 .book-detail-meta {
