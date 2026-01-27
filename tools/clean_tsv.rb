@@ -46,18 +46,35 @@ table.each_with_index do |row, idx|
     end
   end
 
-  # 2. General Smart Quotes
+  # 2. General Formatting (Smart Quotes and Separator Slashes)
   header.each do |col_name|
     val = row[col_name]
-    if val && val.is_a?(String) && val.include?("'")
-      row[col_name] = smart_quotes(val)
+    if val && val.is_a?(String)
+      # Apply smart quotes
+      row[col_name] = smart_quotes(val) if val.include?("'")
+      # Replace " / " with "<br>" (lone slashes used as separators)
+      row[col_name] = row[col_name].gsub(/ \/ /, '<br>') if row[col_name].include?(' / ')
     end
   end
 
   # 3. Specific Brackets for Line 3 and Line 5 (identified by ISBN)
   isbn = row['ISBN'].to_s.strip
-  if isbn == '979-11-89680-57-2' # Line 3 (러닝클럽)
-    terms = ['러닝클럽', '치유', '러닝클럽 크루 미팅']
+  if isbn == '979-11-89680-57-2' # Line 5 (러닝클럽)
+    # Normalize other brackets
+    header.each do |col_name|
+      val = row[col_name]
+      if val && val.is_a?(String)
+        row[col_name] = val.gsub(/[《「]/, '『').gsub(/[》」]/, '』').gsub('〈', '｢').gsub('〉', '｣')
+      end
+    end
+
+    terms = [
+      '러닝클럽', '치유', '러닝클럽 크루 미팅', 
+      '레트로 마니아', '신들린 게임과 개발자들', '원스 어폰 어 타임 인 판교',
+      '녹색 갈증', '모양새', '역마', '시간과 장의사', '적색편이',
+      '모두가 회전목마를 탄다', '막 너머에 신이 있다면', '빛의 구역',
+      '0번 버스는 2번 지구로 향한다', '악어의 맛', '유미의 연인', '낮은 곳으로 임하소서'
+    ]
     header.each do |col_name|
       row[col_name] = apply_brackets(row[col_name], terms)
     end
@@ -71,11 +88,16 @@ table.each_with_index do |row, idx|
   rows << row
 end
 
-# Write back
-CSV.open(input_file, "w", col_sep: "\t") do |csv|
-  csv << header
-  rows.each do |row|
-    csv << row
+# Write back with blank lines for readability
+File.open(input_file, "w", encoding: 'utf-8') do |f|
+  # Write header
+  f.puts header.to_csv(col_sep: "\t")
+  
+  rows.each_with_index do |row, idx|
+    f.puts row.to_csv(col_sep: "\t")
+    # Add blank lines after each record except the last one
+    # The user said "a few lines of blank space", so let's use 3.
+    f.puts "\n\n" if idx < rows.length - 1
   end
 end
 
