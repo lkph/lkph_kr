@@ -35,21 +35,23 @@ TSV 데이터에서 현재 책의 정보를 ISBN으로 조회
 {% assign book_imprint = "" %}
 {% assign book_width = "" %}
 {% assign book_height = "" %}
+{% assign book_author = "" %}
 {% assign book_translator = "" %}
 
 {% if book_data %}
-{% assign book_subtitle = book_data["부제"] %}
+{% assign book_subtitle = book_data["부제목"] %}
 {% assign book_intro = book_data["책 소개"] %}
 {% assign book_toc = book_data["목차"] %}
 {% assign publisher_review = book_data["출판사 서평"] %}
-{% assign book_price = book_data["정가"] %}
-{% assign book_pages = book_data["페이지수"] %}
-{% assign book_status = book_data["출간상태"] %}
-{% assign book_date = book_data["출간일"] %}
+{% assign book_price = book_data["가격"] %}
+{% assign book_pages = book_data["페이지"] %}
+{% assign book_status = book_data["상태"] %}
+{% assign book_date = book_data["발행일"] %}
 {% assign book_imprint = book_data["임프린트"] %}
 {% assign book_width = book_data["가로"] %}
 {% assign book_height = book_data["세로"] %}
-{% assign book_translator = book_data["번역"] %}
+{% assign book_author = book_data["저자"] %}
+{% assign book_translator = book_data["번역"] | strip %}
 {% assign author_intro = book_data["저자 소개"] %}
 {% assign translator_intro = book_data["번역자 소개"] %}
 {% endif %}
@@ -77,13 +79,23 @@ TSV 데이터에서 현재 책의 정보를 ISBN으로 조회
 
         <!-- 저자 / 번역 -->
         <p class="book-detail-author">
-            {{ page.author }}{% if book_translator != "" %} | {{ book_translator }} 옮김{% endif %}
+            {% assign final_author = book_author %}
+            {% if final_author == nil or final_author == "" %}
+            {% assign final_author = page.author %}
+            {% endif %}
+
+            {{ final_author }}
+
+            {% if book_translator and book_translator != "" %}
+            {% if final_author and final_author != "" %} | {% endif %}
+            {{ book_translator }} 옮김
+            {% endif %}
         </p>
 
         <!-- 메타 정보 -->
         <dl class="book-detail-meta">
             {% if book_imprint != "" %}
-            <dt>출판사</dt>
+            <dt>브랜드</dt>
             <dd>{{ book_imprint }}</dd>
             {% endif %}
 
