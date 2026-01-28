@@ -6,4 +6,5 @@ vendor/
 node_modules/
 Gemfile.lock
 *.log
+output_*.html
 .DS_Store

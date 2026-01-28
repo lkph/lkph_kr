@@ -57,6 +57,12 @@ body {
   display: flex;
   flex-direction: column;
   padding-top: var(--header-height);
+  /* 드래그 방지 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* 이전 코드에서 !important로 덮어쓰던 것들을 기본 세팅으로 흡수 */
@@ -90,6 +96,12 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
 }
 
 /* =============================================================================
@@ -116,15 +128,29 @@ img {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  user-select: none;
 }
 
 /* 로고 (중앙) */
 .logo {
   grid-column: 2;
-  font-size: var(--font-size-large);
-  font-weight: 700;
-  letter-spacing: -0.02em;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  user-select: none;
+  outline: none;
+}
+
+.logo img {
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  /* Optional: ensures clicks pass through to the link */
 }
 
 /* =============================================================================
@@ -137,7 +163,8 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 6px;
+  gap: 9px;
+  /* Increased by 50% from 6px */
   width: 28px;
   height: 28px;
   background: none;
@@ -158,11 +185,11 @@ img {
 
 /* 메뉴 열림 상태 */
 .menu-open .menu-toggle .hamburger-line:nth-child(1) {
-  transform: translateY(4px) rotate(45deg);
+  transform: translateY(5.5px) rotate(45deg);
 }
 
 .menu-open .menu-toggle .hamburger-line:nth-child(2) {
-  transform: translateY(-4px) rotate(-45deg);
+  transform: translateY(-5.5px) rotate(-45deg);
 }
 
 /* =============================================================================
@@ -401,6 +428,12 @@ img {
   grid-template-columns: 1fr 2fr;
   gap: calc(var(--spacing-unit) * 3);
   max-width: 900px;
+  /* 상세 페이지에서는 텍스트 선택 허용 */
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  cursor: none;
 }
 
 .book-detail-cover {
