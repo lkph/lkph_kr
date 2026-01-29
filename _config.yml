@@ -26,6 +26,7 @@ defaults:
       layout: "default"
 
 # 빌드 설정
+permalink: pretty
 markdown: kramdown
 highlighter: rouge
 safe: false
