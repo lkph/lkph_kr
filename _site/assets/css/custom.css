@@ -429,7 +429,7 @@ img {
   -moz-user-select: text;
   -ms-user-select: text;
   user-select: text;
-  cursor: none;
+  caret-color: transparent;
 }
 
 .book-detail-cover {

@@ -30,6 +30,7 @@ permalink: pretty
 markdown: kramdown
 highlighter: rouge
 safe: false
+future: true
 plugins_dir: _plugins
 
 # 컬렉션 설정 (책 상세 페이지용)
