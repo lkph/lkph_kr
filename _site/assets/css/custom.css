@@ -222,16 +222,12 @@ img {
   visibility: visible;
 }
 
-/* 메뉴 열림 시 본문 내용 Fade Out */
-.site-main,
-.site-footer,
+/* 메뉴 열림 시 헤더 내용만 Fade Out (본문은 유지) */
 .logo,
 .current-page-label {
   transition: opacity 0.3s ease-in-out;
 }
 
-.menu-open .site-main,
-.menu-open .site-footer,
 .menu-open .logo,
 .menu-open .current-page-label {
   opacity: 0;
